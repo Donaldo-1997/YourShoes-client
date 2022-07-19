@@ -1,11 +1,15 @@
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import HomePage from "./components/HomePage/HomePage"
 import './App.css';
-import Banner from './components/Banner/Banner';
+
 
 function App() {
   return (
-    <div className="App">
-      <Banner></Banner>
-    </div>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<HomePage/>}/>
+        </Routes>
+      </Router>
   );
 }
 
