@@ -1,9 +1,13 @@
 import React from 'react'
 
-export default function ProductCard(){
+export default function ProductCard({image, title, price}){
     return(
         <div>
-            <h1>Carta de producto</h1>
+            <img src={image} alt="img not found"/>
+            <div>
+                <h3>{title}</h3>
+                <p>{price}</p>
+            </div>
         </div>
     )
 }
