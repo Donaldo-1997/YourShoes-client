@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDetails } from "../../redux/actions";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import styles from "./ProductDetail.module.css";
-
 
 export default function ProductDetail(props) {
   const dispatch = useDispatch();
@@ -25,9 +24,8 @@ export default function ProductDetail(props) {
           <div className={styles.divContent}>
             <h1>{myShoes.title}</h1>
             <h3>${myShoes.price}</h3>
-            <h5>descripcion del producto</h5>
-            <div className={styles.pop}>
-            <h1>Size: </h1>
+            <h5>descripcion del producto</h5>            
+            <h1>Size: </h1>            
             <select>
               <option value="35">35</option>
               <option value="36">36</option>
@@ -39,12 +37,12 @@ export default function ProductDetail(props) {
               <option value="42">42</option>
               <option value="43">43</option>
               <option value="44">44</option>
-            </select>
-            </div>
+            </select>            
             <div className={styles.buttons}>
             <button className={styles}>Comprar</button>
             <button className={styles}>Añadir al carro</button>
             </div>
+            <Link to= '/' ><button>Return</button></Link>
           </div>
         </div>
       ) : (

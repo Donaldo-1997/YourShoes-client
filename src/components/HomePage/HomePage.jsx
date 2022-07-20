@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react'
 import {getAllShoes} from "../../redux/actions"
 import ProductCards from "../ProductCards/ProductCards"
 import Pagination from "../Pagination/Pagination"
-
+import About from '../About/About'
 export default function HomePage(){
     const dispatch = useDispatch()
     const allProducts = useSelector(state => state.products) 
@@ -42,6 +42,9 @@ export default function HomePage(){
                 prevPageButton={prevPageButton}
                 currentPage={currentPage}/>
             <ProductCards allProducts={currentShoes}/>
+            <div>
+                <About/>
+            </div>
         </div>
     )
 }
