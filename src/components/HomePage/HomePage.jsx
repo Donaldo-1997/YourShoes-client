@@ -1,15 +1,15 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { getAllShoes } from "../../redux/actions";
-import ProductCards from "../ProductCards/ProductCards";
+import React from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {useEffect, useState} from 'react'
+import {getAllShoes} from "../../redux/actions"
+import ProductCards from "../ProductCards/ProductCards"
+import Pagination from "../Pagination/Pagination"
 import Banner from "../Banner/Banner";
 import Searchbar from "../SearchBar/SearchBar";
-import Pagination from "../Pagination/Pagination";
-
-export default function HomePage() {
-  const dispatch = useDispatch();
-  const allProducts = useSelector((state) => state.products);
+import About from '../About/About'
+export default function HomePage(){
+    const dispatch = useDispatch()
+    const allProducts = useSelector(state => state.products) 
 
   //Paginado//
   const [currentPage, setCurrentPage] = useState(1);
@@ -47,6 +47,7 @@ export default function HomePage() {
         currentPage={currentPage}
       />
       <ProductCards allProducts={currentShoes} />
+      <div><About/></div>
     </div>
   );
 }
