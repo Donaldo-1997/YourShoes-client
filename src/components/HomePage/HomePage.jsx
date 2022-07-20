@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 import {getAllShoes} from "../../redux/actions"
 import ProductCards from "../ProductCards/ProductCards"
+import Banner from '../Banner/Banner'
 
 export default function HomePage(){
     const dispatch = useDispatch()
@@ -10,9 +11,12 @@ export default function HomePage(){
 
     useEffect(() => {
         dispatch(getAllShoes())
-    }, [])
+    }, [dispatch])
+
+
     return(
         <div>
+        <Banner></Banner>
             <ProductCards allProducts={allProducts}/>
         </div>
     )
