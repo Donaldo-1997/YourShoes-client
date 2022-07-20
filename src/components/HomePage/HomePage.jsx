@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { getAllShoes } from "../../redux/actions";
 import ProductCards from "../ProductCards/ProductCards";
 import Banner from "../Banner/Banner";
+import Searchbar from "../SearchBar/SearchBar";
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export default function HomePage() {
 
   return (
     <div>
+    <Searchbar></Searchbar>
       <Banner></Banner>
       <ProductCards allProducts={allProducts} />
     </div>

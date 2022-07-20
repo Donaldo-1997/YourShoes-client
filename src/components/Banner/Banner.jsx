@@ -8,7 +8,7 @@ export default function Banner(){
         
             <>
    <Carousel>
-      <Carousel.Item interval={1500}>
+      <Carousel.Item interval={1800}>
         <img
           className="d-block w-100" style={{height:'400px'}}
           src="https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -19,7 +19,7 @@ export default function Banner(){
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={1500}>
+      <Carousel.Item interval={1800}>
       
         <img
           className="d-block w-100" style={{height:'400px'}}
@@ -31,7 +31,7 @@ export default function Banner(){
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={1500}>
+      <Carousel.Item interval={1800}>
         <img
           className="d-block w-100" style={{height:'400px'}}
           src="https://images.pexels.com/photos/786003/pexels-photo-786003.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
