@@ -1,11 +1,12 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { getAllShoes } from "../../redux/actions";
-import ProductCards from "../ProductCards/ProductCards";
+import React from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {useEffect, useState} from 'react'
+import {getAllShoes} from "../../redux/actions"
+import ProductCards from "../ProductCards/ProductCards"
+import Pagination from "../Pagination/Pagination"
 import Banner from "../Banner/Banner";
-import Pagination from "../Pagination/Pagination";
 import NavBar from "../NavBar/NavBar";
+import About from "../About/About"
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ export default function HomePage() {
         currentPage={currentPage}
       />
       <ProductCards allProducts={currentShoes} />
+      <div><About/></div>
     </div>
   );
 }

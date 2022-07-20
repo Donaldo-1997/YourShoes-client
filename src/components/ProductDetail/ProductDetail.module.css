@@ -1,0 +1,22 @@
+.divCard {
+  min-width: 250px;
+  width: 60%;
+  margin: auto;
+  margin-top: 3em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.divContent {
+  background-color: #ffff01;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  align-items:flex-end;
+}
+.img {
+  width: max-content;
+  height: max-content;
+}
