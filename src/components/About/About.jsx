@@ -28,14 +28,6 @@ export default function About() {
               <li>SERVICE CENTER</li>
             </ul>
           </div>
-          <div className={styles.footer_col4}>
-            <h3>DOWNLOAD THE APP</h3>
-            <p>Download App for Android and ios mobile phone.</p>
-            <div className={styles.app_logo}>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Get-it-on-google-play-badge.png" alt="" />
-              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Available_on_the_App_Store_%28black%29.png" alt="" />
-            </div>
-          </div>
           <div>
             <h3>NEWSLETTER</h3>
             <input type="email" placeholder="Email: " />

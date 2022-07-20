@@ -7,7 +7,6 @@ import { BsFillCartFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 
-
 export default function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
@@ -20,9 +19,16 @@ export default function NavBar() {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Shop <BsFillCartFill/></Nav.Link>
-            <Nav.Link href="#action2"> Favorite <FaHeart/></Nav.Link>
-            <Nav.Link href="#action2">Login <FaUserAlt/></Nav.Link>
+            <Nav.Link href="#action1">
+              Shop <BsFillCartFill />
+            </Nav.Link>
+            <Nav.Link href="#action2">
+              {" "}
+              Favorite <FaHeart />
+            </Nav.Link>
+            <Nav.Link href="#action2">
+              Login <FaUserAlt />
+            </Nav.Link>
           </Nav>
           <Searchbar></Searchbar>
         </Navbar.Collapse>
