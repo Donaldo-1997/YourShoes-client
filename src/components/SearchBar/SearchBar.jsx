@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/exports";
 import { getShoesName } from "../../redux/actions";
-import styles from './SearchBar.module.css'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { FaSearch } from "react-icons/fa";
+
 
 export default function Searchbar() {
   const dispatch = useDispatch();
@@ -25,15 +28,15 @@ export default function Searchbar() {
     //actualPage(1)  seteralo en la pagina 1
   };
   return (
-    <form className={styles.search}>
-      <input
-        type="text"
-        placeholder="Search..."
-        onChange={(e) => handleInput(e)}
-        value={name}
-        className={styles.searchTerm} 
-      />
-      <button type="submit" onClick={(e) => handleSubmit(e)} className={styles.Searchbutton}>Search</button>
-    </form>
+    <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+              onChange={(e) => handleInput(e)}
+            />
+            <Button variant="outline-success" onClick={(e) => handleSubmit(e)}><FaSearch/></Button>
+          </Form>
   );
 }

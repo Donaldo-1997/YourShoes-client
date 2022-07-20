@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { getAllShoes } from "../../redux/actions";
 import ProductCards from "../ProductCards/ProductCards";
 import Banner from "../Banner/Banner";
-import Searchbar from "../SearchBar/SearchBar";
 import Pagination from "../Pagination/Pagination";
+import NavBar from "../NavBar/NavBar";
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ export default function HomePage() {
   }, [dispatch]);
   return (
     <div>
-      <Searchbar></Searchbar>
+      <NavBar></NavBar>
       <Banner></Banner>
       <Pagination
         shoesPerPage={shoesPerPage}

@@ -8,40 +8,38 @@ export default function Banner(){
         
             <>
    <Carousel>
-      <Carousel.Item interval={1800}>
+      <Carousel.Item interval={2000}>
         <img
           className="d-block w-100" style={{height:'400px'}}
-          src="https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src="https://img.freepik.com/vector-premium/banner-venta-zapatillas-deporte_100562-29.jpg?w=2000"
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <h3>YOURSHOES</h3>
+          <p>Chouse your Brand</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={1800}>
+      <Carousel.Item interval={2000}>
       
         <img
           className="d-block w-100" style={{height:'400px'}}
-          src="https://images.pexels.com/photos/1027130/pexels-photo-1027130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src="https://www.paris.cl/on/demandware.static/-/Sites/es_CL/dw0c086768/marketing/imagenes/zapatillas/banner_zapatillas_larga-vida_mar22.jpg"
           alt="Second slide"
         />
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>YOURSHOES</h3>
+          <p>Chouse your Brand</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item interval={1800}>
+      <Carousel.Item interval={2000}>
         <img
           className="d-block w-100" style={{height:'400px'}}
-          src="https://images.pexels.com/photos/786003/pexels-photo-786003.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          src="https://intersport-f2e7.kxcdn.com/web/image/573531/ESPECIAL-ZAPATILLAS-BANNER-1280-X-333.jpg?access_token=a9bf158a-82e5-4174-b117-a4ec7170212d"
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
+        <h3>YOURSHOES</h3>
+          <p>Chouse your Brand</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
