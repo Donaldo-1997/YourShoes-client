@@ -1,24 +1,52 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getAllShoes } from "../../redux/actions";
 import ProductCards from "../ProductCards/ProductCards";
 import Banner from "../Banner/Banner";
 import Searchbar from "../SearchBar/SearchBar";
+import Pagination from "../Pagination/Pagination";
 
 export default function HomePage() {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
 
+  //Paginado//
+  const [currentPage, setCurrentPage] = useState(1);
+  const [shoesPerPage, setShoesPerPage] = useState(12);
+  const indexOfLastShoe = currentPage * shoesPerPage;
+  const indexOfFirstShoe = indexOfLastShoe - shoesPerPage;
+  const currentShoes = allProducts.slice(indexOfFirstShoe, indexOfLastShoe);
+
+  const pagination = (page) => {
+    setCurrentPage(page);
+  };
+
+  const nextPageButton = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
+  const prevPageButton = () => {
+    setCurrentPage(currentPage - 1);
+  };
+  //Paginado//
+
   useEffect(() => {
     dispatch(getAllShoes());
   }, [dispatch]);
-
   return (
     <div>
-    <Searchbar></Searchbar>
+      <Searchbar></Searchbar>
       <Banner></Banner>
-      <ProductCards allProducts={allProducts} />
+      <Pagination
+        shoesPerPage={shoesPerPage}
+        allProducts={allProducts.length}
+        pagination={pagination}
+        nextPageButton={nextPageButton}
+        prevPageButton={prevPageButton}
+        currentPage={currentPage}
+      />
+      <ProductCards allProducts={currentShoes} />
     </div>
   );
 }
