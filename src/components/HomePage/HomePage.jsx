@@ -1,23 +1,22 @@
-import React from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {useEffect} from 'react'
-import {getAllShoes} from "../../redux/actions"
-import ProductCards from "../ProductCards/ProductCards"
-import Banner from '../Banner/Banner'
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAllShoes } from "../../redux/actions";
+import ProductCards from "../ProductCards/ProductCards";
+import Banner from "../Banner/Banner";
 
-export default function HomePage(){
-    const dispatch = useDispatch()
-    const allProducts = useSelector(state => state.products) 
+export default function HomePage() {
+  const dispatch = useDispatch();
+  const allProducts = useSelector((state) => state.products);
 
-    useEffect(() => {
-        dispatch(getAllShoes())
-    }, [dispatch])
+  useEffect(() => {
+    dispatch(getAllShoes());
+  }, [dispatch]);
 
-
-    return(
-        <div>
-        <Banner></Banner>
-            <ProductCards allProducts={allProducts}/>
-        </div>
-    )
+  return (
+    <div>
+      <Banner></Banner>
+      <ProductCards allProducts={allProducts} />
+    </div>
+  );
 }
