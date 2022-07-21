@@ -38,11 +38,7 @@ export default function rootReducer(state = initialState, action) {
       console.log(cartProducts);
       return {
         ...state,
-<<<<<<< HEAD
         cart : [...state.cart, ...cartProducts]
-=======
-        cart: [...state.cart, cartProducts],
->>>>>>> 7601b0c (Ordenando codigo)
       };
 
       case DELETE_ONE_FROM_CART:

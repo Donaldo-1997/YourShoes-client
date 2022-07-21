@@ -1,17 +1,10 @@
 import axios from "axios";
 
-<<<<<<< HEAD
 export const GET_ALL_SHOES = "GET_ALL_SHOES"
 export const GET_DETAILS = "GET_DETAILS"
 export const GET_SHOES_NAME = "GET_SHOES_NAME"
 export const ADD_ONE_TO_CART = 'ADD_ONE_TO_CART'
 export const DELETE_ONE_FROM_CART = 'DELETE_ONE_FROM_CART'
-=======
-export const GET_ALL_SHOES = "GET_ALL_SHOES";
-export const GET_DETAILS = "GET_DETAILS";
-export const GET_SHOES_NAME = "GET_SHOES_NAME";
-export const ADD_ONE_TO_CART = "ADD_ONE_TO_CART";
->>>>>>> 7601b0c (Ordenando codigo)
 
 export function getAllShoes() {
   return async function (dispatch) {
@@ -57,7 +50,6 @@ export function addOneToCart(payload) {
     payload,
   };
 }
-<<<<<<< HEAD
 
 export function deleteOneToCart(payload){
     // console.log(payload)
@@ -67,5 +59,3 @@ return ({
 })
 }
 
-=======
->>>>>>> 7601b0c (Ordenando codigo)
