@@ -19,8 +19,13 @@ export default function ProductDetail() {
     localStorage.setItem('products', JSON.stringify(cartProducts))
    }
 
+   const saveLocalStorage = () => {
+    localStorage.getItem('products')
+   }
+
    useEffect(() => {
     addLocalStorage()
+    saveLocalStorage()
    },[cartProducts])
 
    const onClick = (e) => {

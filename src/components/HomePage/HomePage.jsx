@@ -37,7 +37,7 @@ export default function HomePage() {
   }, [dispatch]);
   return (
     <div>
-      <NavBar></NavBar>
+      <NavBar setCurrentPage={setCurrentPage}></NavBar>
       <Banner></Banner>
       <Pagination
         shoesPerPage={shoesPerPage}

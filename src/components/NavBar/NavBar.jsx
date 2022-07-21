@@ -7,7 +7,7 @@ import { BsFillCartFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 
-export default function NavBar() {
+export default function NavBar({setCurrentPage}) {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -30,7 +30,7 @@ export default function NavBar() {
               Login <FaUserAlt />
             </Nav.Link>
           </Nav>
-          <Searchbar></Searchbar>
+          <Searchbar setCurrentPage={setCurrentPage}></Searchbar>
         </Navbar.Collapse>
       </Container>
     </Navbar>

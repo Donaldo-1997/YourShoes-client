@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { FaSearch } from "react-icons/fa";
 
 
-export default function Searchbar() {
+export default function Searchbar({setCurrentPage}) {
   const dispatch = useDispatch();
 
   const [name, setName] = useState("");
@@ -22,13 +22,13 @@ export default function Searchbar() {
       alert("Put a Name");
     } else {
       dispatch(getShoesName(name));
+      setCurrentPage(1)
     }
 
     setName('')
-    //actualPage(1)  seteralo en la pagina 1
   };
   return (
-    <Form className="d-flex">
+    <Form className="d-flex" onSubmit={(e) => handleSubmit(e)}>
             <Form.Control
               type="search"
               placeholder="Search"
