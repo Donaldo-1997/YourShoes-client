@@ -1,18 +1,34 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getDetails } from "../../redux/actions";
+import { addOneToCart, getDetails } from "../../redux/actions";
 import { useParams, Link } from "react-router-dom";
 import styles from "./ProductDetail.module.css";
 
 export default function ProductDetail(props) {
   const dispatch = useDispatch();
   let { id } = useParams();
-  console.log(id);
+  // console.log(id);
   useEffect(() => {
     dispatch(getDetails(id));
   }, [dispatch, id]);
 
+  const cartProducts = useSelector((state) => state.cart)
   const myShoes = useSelector((state) => state.detail);
+
+   const addLocalStorage = () => {
+    localStorage.setItem('products', JSON.stringify(cartProducts))
+   }
+
+   useEffect(() => {
+    addLocalStorage()
+   },[cartProducts])
+
+   const onClick = (e) => {
+e.preventDefault()
+// console.log('onclick', e.target.id)
+    dispatch(addOneToCart(e.target.id))
+   }
+
   return (
     <div>
       {myShoes ? (
@@ -32,15 +48,15 @@ export default function ProductDetail(props) {
               <option value="37">37</option>
               <option value="38">38</option>
               <option value="39">39</option>
-              <option value="40">40</option>
+              <option value="40">40</option> 
               <option value="41">41</option>
               <option value="42">42</option>
               <option value="43">43</option>
               <option value="44">44</option>
             </select>            
             <div className={styles.buttons}>
-            <button className={styles}>Comprar</button>
-            <button className={styles}>Añadir al carro</button>
+            <button className={styles}>Comprar</button> \\ agregar un LINK to hacia el carrito
+            <button className={styles} onClick={(e) => onClick(e)} id={myShoes.id}>Añadir al carro</button> \\ solo envia el producto al carrito
             </div>
             <Link to= '/' ><button>Return</button></Link>
           </div>

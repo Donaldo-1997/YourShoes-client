@@ -3,11 +3,12 @@ import axios from "axios";
 export const GET_ALL_SHOES = "GET_ALL_SHOES"
 export const GET_DETAILS = "GET_DETAILS"
 export const GET_SHOES_NAME = "GET_SHOES_NAME"
+export const ADD_ONE_TO_CART = 'ADD_ONE_TO_CART'
 
 export function getAllShoes() {
   return async function (dispatch) {
     const results = await axios(`http://localhost:3001/shoes`);
-    console.log(results)
+    // console.log(results)
     dispatch({
       type: "GET_ALL_SHOES",
       payload: results.data,
@@ -43,3 +44,12 @@ export function getShoesName(name){
 
     }
 }
+
+export function addOneToCart(payload){
+    // console.log(payload)
+return ({
+    type: ADD_ONE_TO_CART,
+    payload
+})
+}
+

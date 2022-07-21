@@ -1,8 +1,14 @@
-import { GET_ALL_SHOES, GET_DETAILS, GET_SHOES_NAME } from "./actions";
+import {
+  ADD_ONE_TO_CART,
+  GET_ALL_SHOES,
+  GET_DETAILS,
+  GET_SHOES_NAME,
+} from "./actions";
 
 const initialState = {
   products: [],
-  detail: []
+  detail: [],
+  cart: [],
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -14,14 +20,24 @@ export default function rootReducer(state = initialState, action) {
       };
     case GET_DETAILS:
       return {
-        ...state, 
+        ...state,
         detail: action.payload,
       };
-      case GET_SHOES_NAME:
-        return {
-          ...state,
-          products: action.payload
-        }
+    case GET_SHOES_NAME:
+      return {
+        ...state,
+        products: action.payload,
+      };
+    case ADD_ONE_TO_CART:
+
+    const allProducts = state.products
+    // console.log(allProducts)
+    const cartProducts = allProducts.filter((product) => product.id === action.payload)
+    console.log(cartProducts)
+      return {
+        ...state,
+        cart : [...state.cart, cartProducts]
+      };
     default:
       return state;
   }
