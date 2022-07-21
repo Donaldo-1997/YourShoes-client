@@ -23,9 +23,12 @@ export default function ProductDetail() {
     localStorage.getItem('products')
    }
 
+   
+
    useEffect(() => {
+    if(cartProducts.length){
     addLocalStorage()
-    saveLocalStorage()
+    saveLocalStorage()}
    },[cartProducts])
 
    const onClick = (e) => {

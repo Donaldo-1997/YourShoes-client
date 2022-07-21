@@ -1,5 +1,6 @@
 import {
   ADD_ONE_TO_CART,
+  DELETE_ONE_FROM_CART,
   GET_ALL_SHOES,
   GET_DETAILS,
   GET_SHOES_NAME,
@@ -36,8 +37,17 @@ export default function rootReducer(state = initialState, action) {
     console.log(cartProducts)
       return {
         ...state,
-        cart : [...state.cart, cartProducts]
+        cart : [...state.cart, ...cartProducts]
       };
+
+      case DELETE_ONE_FROM_CART:
+        const productsToDelete = state.products
+         productsToDelete.filter((product) => product.id !== action.payload)
+
+        return {
+          ...state,
+          cart : state.cart
+        }
     default:
       return state;
   }
