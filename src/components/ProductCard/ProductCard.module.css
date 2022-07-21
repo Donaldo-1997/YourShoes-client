@@ -1,0 +1,9 @@
+.ellipsis {
+    text-overflow: ellipsis ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .short {
+    width: 400px;
+  }
+  
