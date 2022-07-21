@@ -12,12 +12,12 @@ export default function ProductDetail() {
     dispatch(getDetails(id));
   }, [dispatch, id]);
 
-  const cartProducts = useSelector((state) => state.cart)
+  const cartProducts = useSelector((state) => state.cart);
   const myShoes = useSelector((state) => state.detail);
 
-   const addLocalStorage = () => {
-    localStorage.setItem('products', JSON.stringify(cartProducts))
-   }
+  const addLocalStorage = () => {
+    localStorage.setItem("products", JSON.stringify(cartProducts));
+  };
 
    const saveLocalStorage = () => {
     localStorage.getItem('products')
@@ -31,42 +31,49 @@ export default function ProductDetail() {
     saveLocalStorage()}
    },[cartProducts])
 
-   const onClick = (e) => {
-e.preventDefault()
-// console.log('onclick', e.target.id)
-    dispatch(addOneToCart(e.target.id))
-   }
+  const onClick = (e) => {
+    e.preventDefault();
+    // console.log('onclick', e.target.id)
+    dispatch(addOneToCart(e.target.id));
+  };
 
   return (
     <div>
       {myShoes ? (
         <div className={styles.divCard}>
-          <img
-            src={myShoes.image}
-            alt="imgShoes not found"
-          />
+          <img src={myShoes.image} alt="imgShoes not found" />
           <div className={styles.divContent}>
             <h1>{myShoes.title}</h1>
             <h3>${myShoes.price}</h3>
-            <h5>descripcion del producto</h5>            
-            <h1>Size: </h1>            
+            <h5>descripcion del producto</h5>
+            <h1>Size: </h1>
             <select>
               <option value="35">35</option>
               <option value="36">36</option>
               <option value="37">37</option>
               <option value="38">38</option>
               <option value="39">39</option>
-              <option value="40">40</option> 
+              <option value="40">40</option>
               <option value="41">41</option>
               <option value="42">42</option>
               <option value="43">43</option>
               <option value="44">44</option>
-            </select>            
+            </select>
             <div className={styles.buttons}>
-            <button className={styles}>Comprar</button> \\ agregar un LINK to hacia el carrito
-            <button className={styles} onClick={(e) => onClick(e)} id={myShoes.id}>Añadir al carro</button> \\ solo envia el producto al carrito
+              <button className={styles}>Comprar</button> \\ agregar un LINK to
+              hacia el carrito
+              <button
+                className={styles}
+                onClick={(e) => onClick(e)}
+                id={myShoes.id}
+              >
+                Añadir al carro
+              </button>{" "}
+              \\ solo envia el producto al carrito
             </div>
-            <Link to= '/' ><button>Return</button></Link>
+            <Link to="/">
+              <button>Return</button>
+            </Link>
           </div>
         </div>
       ) : (
