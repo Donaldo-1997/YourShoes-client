@@ -6,7 +6,12 @@ export default function ProductCard({image, title, price}){
             <img src={image} alt="img not found"/>
             <div className={styles.container}>
                 <div className={styles.short}>
-                <h4 className={styles.ellipsis}>{title}<p>...</p></h4>
+                    {
+                        title.length > 20 
+                        ? <h4>{title.slice(0,20)}...</h4> 
+                        : <h4>{title}</h4>
+                    }
+                {/* <h4 className={styles.ellipsis}>{title}<p>...</p></h4> */}
                 </div>
                 <p>${price}</p>
             </div>

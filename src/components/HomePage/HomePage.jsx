@@ -4,7 +4,6 @@ import {useEffect, useState} from 'react'
 import {getAllShoes} from "../../redux/actions"
 import ProductCards from "../ProductCards/ProductCards"
 import Pagination from "../Pagination/Pagination"
-<<<<<<< HEAD
 import Banner from "../Banner/Banner";
 import NavBar from "../NavBar/NavBar";
 import About from "../About/About"
@@ -12,12 +11,6 @@ import About from "../About/About"
 export default function HomePage() {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products);
-=======
-import About from '../About/About'
-export default function HomePage(){
-    const dispatch = useDispatch()
-    const allProducts = useSelector(state => state.products) 
->>>>>>> f1c3e9a (Componente About hecho, falta funcionalidad)
 
   //Paginado//
   const [currentPage, setCurrentPage] = useState(1);
