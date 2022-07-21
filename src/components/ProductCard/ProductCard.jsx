@@ -6,7 +6,7 @@ export default function ProductCard({image, title, price}){
             <img src={image} alt="img not found"/>
             <div>
                 <h3>{title}</h3>
-                <p>{price}</p>
+                <p>${price}</p>
             </div>
         </div>
     )
