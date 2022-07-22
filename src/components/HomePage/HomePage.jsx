@@ -7,7 +7,7 @@ import Pagination from "../Pagination/Pagination"
 import Banner from "../Banner/Banner";
 import NavBar from "../NavBar/NavBar";
 import About from "../About/About"
-
+import styles from "./HomePage.module.css"
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -83,7 +83,7 @@ export default function HomePage() {
         prevPageButton={prevPageButton}
         currentPage={currentPage}
       />
-      <div>
+      <div className={styles.cardContainer}>
         <div>
           {
             currentShoes ? <ProductCards allProducts={currentShoes} /> : <ProductCards allProducts={allProducts}/>

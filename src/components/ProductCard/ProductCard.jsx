@@ -3,7 +3,7 @@ import styles from "./ProductCard.module.css";
 export default function ProductCard({ image, title, price }) {
   return (
     <div className={styles.card}>
-      <img src={image} alt="img not found" />
+      <img src={image} alt="img not found" className={styles.cardImg}/>
       <div className={styles.container}>
         <div className={styles.short}>
           {title.length > 20 ? (

@@ -24,7 +24,8 @@ export default function Searchbar({setCurrentPage}) {
       dispatch(getShoesName(name));
       setCurrentPage(1)
     }
-
+    const idSearchBar = document.getElementById("input-searchbar") //Esto es para que el input de la searchbar se limpie 
+    idSearchBar.value = ""                                         //despues de buscar algo
     setName('')
   };
   return (
@@ -35,6 +36,7 @@ export default function Searchbar({setCurrentPage}) {
               className="me-2"
               aria-label="Search"
               onChange={(e) => handleInput(e)}
+              id={"input-searchbar"}
             />
             <Button variant="outline-success" onClick={(e) => handleSubmit(e)}><FaSearch/></Button>
           </Form>
