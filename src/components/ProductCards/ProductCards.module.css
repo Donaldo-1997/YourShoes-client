@@ -1,0 +1,21 @@
+.container{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+.container .card{
+    width: 210px;
+    border: solid 2px black;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px;
+    text-align: left;
+}
+
+.Link{
+    text-decoration: none;
+}

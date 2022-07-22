@@ -15,25 +15,25 @@ export default function NavBar({setCurrentPage}) {
   //   console.log(respuesta)
   // }
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" className={styles.navbar}>
       <Container fluid>
-        <Navbar.Brand>Your Shoes</Navbar.Brand>
+        <Navbar.Brand className={styles.yourShoes}>Your<span>Shoes</span></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
+        <Navbar.Collapse id="navbarScroll" >
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1">
-             <Link to='/cart' className={styles.Link}>Shop <BsFillCartFill /></Link> 
+            <Nav.Link href="#action1" className={styles.icon}>
+             <Link to='/cart' className={styles.Link}> <BsFillCartFill /></Link> 
             </Nav.Link>
-            <Nav.Link href="#action2">
+            <Nav.Link href="#action2" className={styles.icon}>
               {" "}
-              Favorite <FaHeart />
+               <FaHeart />
             </Nav.Link>
-            <Nav.Link href="#action2">
-              Login <FaUserAlt />
+            <Nav.Link href="#action2" className={styles.icon}>
+               <FaUserAlt />
             </Nav.Link>
           </Nav>
           <Searchbar setCurrentPage={setCurrentPage}></Searchbar>

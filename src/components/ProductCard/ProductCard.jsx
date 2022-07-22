@@ -7,13 +7,13 @@ export default function ProductCard({ image, title, price }) {
       <div className={styles.container}>
         <div className={styles.short}>
           {title.length > 20 ? (
-            <h4>{title.slice(0, 20)}...</h4>
+            <h4 className={styles.title}>{title.slice(0, 20)}...</h4>
           ) : (
-            <h4>{title}</h4>
+            <h4 className={styles.title}>{title}</h4>
           )}
           {/* <h4 className={styles.ellipsis}>{title}<p>...</p></h4> */}
         </div>
-        <p>${price}</p>
+        <p className={styles.price}>${price}</p>
       </div>
     </div>
   );

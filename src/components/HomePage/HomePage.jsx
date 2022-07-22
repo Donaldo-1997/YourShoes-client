@@ -47,8 +47,20 @@ export default function HomePage() {
         prevPageButton={prevPageButton}
         currentPage={currentPage}
       />
-      <ProductCards allProducts={currentShoes} />
-      <div><About/></div>
+      <div>
+        <ProductCards allProducts={currentShoes} />
+        <Pagination
+        shoesPerPage={shoesPerPage}
+        allProducts={allProducts.length}
+        pagination={pagination}
+        nextPageButton={nextPageButton}
+        prevPageButton={prevPageButton}
+        currentPage={currentPage}
+      />
+        <div><About/></div>
+      </div>
+      
+      
     </div>
   );
 }

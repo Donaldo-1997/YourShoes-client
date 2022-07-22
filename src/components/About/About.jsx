@@ -34,7 +34,7 @@ export default function About() {
           </div>
         </div>
         <hr />
-        <p>CopyRight 2022 - Easy Tutorials</p>
+      
       </div>
     </div>
   );
