@@ -6,8 +6,12 @@ import Searchbar from "../SearchBar/SearchBar";
 import { BsFillCartFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
+import GoogleLogin from 'react-google-login';
 
 export default function NavBar({setCurrentPage}) {
+  const responseGoogle = (respuesta) =>{
+    console.log(respuesta)
+  }
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -32,6 +36,13 @@ export default function NavBar({setCurrentPage}) {
           </Nav>
           <Searchbar setCurrentPage={setCurrentPage}></Searchbar>
         </Navbar.Collapse>
+        <GoogleLogin
+          clientId="321230858550-vrrr1cr5coemim48ourin60pumf2rh3f.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={'single_host_origin'}
+        />
       </Container>
     </Navbar>
   );
