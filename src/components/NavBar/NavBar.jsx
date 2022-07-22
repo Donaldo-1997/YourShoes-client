@@ -8,12 +8,12 @@ import { FaHeart } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import {Link} from 'react-router-dom'
 import styles from './NavBar.module.css'
-import GoogleLogin from 'react-google-login';
+// import GoogleLogin from 'react-google-login';
 
 export default function NavBar({setCurrentPage}) {
-  const responseGoogle = (respuesta) =>{
-    console.log(respuesta)
-  }
+  // const responseGoogle = (respuesta) =>{
+  //   console.log(respuesta)
+  // }
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -38,13 +38,13 @@ export default function NavBar({setCurrentPage}) {
           </Nav>
           <Searchbar setCurrentPage={setCurrentPage}></Searchbar>
         </Navbar.Collapse>
-        <GoogleLogin
+        {/* <GoogleLogin
           clientId="321230858550-vrrr1cr5coemim48ourin60pumf2rh3f.apps.googleusercontent.com"
           buttonText="Login"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
           cookiePolicy={'single_host_origin'}
-        />
+        /> */}
       </Container>
     </Navbar>
   );
