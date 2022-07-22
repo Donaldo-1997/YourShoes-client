@@ -1,8 +1,21 @@
-import React from "react";
+import React ,{useEffect}from "react";
 import styles from "./Cart.module.css"
+import { useSelector } from "react-redux/es/exports";
 export default function Cart() {
+
+  const cartProducts = useSelector((state) => state.cart);
   const product = JSON.parse(localStorage.getItem("products"));
   // const isArray = Array.isArray(product);
+
+  const addLocalStorage = () => {
+    localStorage.setItem("products", JSON.stringify(cartProducts));
+  };
+
+  
+  useEffect(() => {
+    if(cartProducts.length){
+    addLocalStorage()}
+   },[cartProducts])
 
   return (
     <div>

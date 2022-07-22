@@ -6,6 +6,8 @@ import Searchbar from "../SearchBar/SearchBar";
 import { BsFillCartFill } from "react-icons/bs";
 import { FaHeart } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
+import {Link} from 'react-router-dom'
+import styles from './NavBar.module.css'
 
 export default function NavBar({setCurrentPage}) {
   return (
@@ -20,7 +22,7 @@ export default function NavBar({setCurrentPage}) {
             navbarScroll
           >
             <Nav.Link href="#action1">
-              Shop <BsFillCartFill />
+             <Link to='/cart' className={styles.Link}>Shop <BsFillCartFill /></Link> 
             </Nav.Link>
             <Nav.Link href="#action2">
               {" "}
