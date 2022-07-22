@@ -1,3 +1,6 @@
 .container2 p{
     color: blue;   
 }
+.container img{
+    width: 100px;
+}
