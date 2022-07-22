@@ -1,32 +1,45 @@
-import React ,{useEffect}from "react";
-import styles from "./Cart.module.css"
+import React, { useEffect } from "react";
+import styles from "./Cart.module.css";
 import { useSelector } from "react-redux/es/exports";
-export default function Cart() {
+import { useState } from "react";
 
+
+export default function Cart() {
   const cartProducts = useSelector((state) => state.cart);
   const product = JSON.parse(localStorage.getItem("products"));
-  // const isArray = Array.isArray(product);
-
+  const [products, setProducts] = useState([]);
   const addLocalStorage = () => {
     localStorage.setItem("products", JSON.stringify(cartProducts));
   };
 
-  
   useEffect(() => {
-    if(cartProducts.length){
-    addLocalStorage()}
-   },[cartProducts])
+    setProducts(JSON.parse(localStorage.getItem("products")));
+  }, []);
+
+  const deleteProduct = (e) => {
+    let temp = product.filter((prod) => prod.id !== e.target.id);
+    localStorage.setItem("products", JSON.stringify(temp));
+    window.location.reload();
+  };
+
+  useEffect(() => {
+    if (cartProducts.length) {
+      addLocalStorage();
+    }
+  }, [cartProducts]);
 
   return (
     <div>
-      {product ? (
+      {product.length > 0 ? (
         product.map((prod) => {
           return (
-            <div key={prod.id}>
+            <div key={prod.id} className={styles.container}>
               <p>{prod.title}</p>
               <img src={prod.image} alt="" />
               <p>Price: ${prod.price}</p>
-              <button>Eliminar</button>
+              <button onClick={(e) => deleteProduct(e)} id={prod.id}>
+                Eliminar
+              </button>
             </div>
           );
         })

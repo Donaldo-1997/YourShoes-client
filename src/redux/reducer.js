@@ -1,6 +1,7 @@
 import {
   ADD_ONE_TO_CART,
   DELETE_ONE_FROM_CART,
+  FILTER_BY_BRAND,
   GET_ALL_SHOES,
   GET_DETAILS,
   GET_SHOES_NAME,
@@ -10,6 +11,7 @@ const initialState = {
   products: [],
   detail: [],
   cart: [],
+  filteredProducts: []
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -19,36 +21,46 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         products: action.payload,
       };
+
     case GET_DETAILS:
       return {
         ...state,
         detail: action.payload,
       };
+
     case GET_SHOES_NAME:
       return {
         ...state,
         products: action.payload,
       };
+
     case ADD_ONE_TO_CART:
       const allProducts = state.products;
       // console.log(allProducts)
       const cartProducts = allProducts.filter(
         (product) => product.id === action.payload
       );
-      console.log(cartProducts);
+      //console.log(cartProducts);
       return {
         ...state,
         cart : [...state.cart, ...cartProducts]
       };
 
-      case DELETE_ONE_FROM_CART:
-        const productsToDelete = state.products
-         productsToDelete.filter((product) => product.id !== action.payload)
+    case DELETE_ONE_FROM_CART:
+      const productsToDelete = state.products
+        productsToDelete.filter((product) => product.id !== action.payload)
+      return {
+        ...state,
+        cart : state.cart
+      }
 
-        return {
-          ...state,
-          cart : state.cart
-        }
+    case FILTER_BY_BRAND:
+      console.log("hola", action.payload)
+      return{
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
     default:
       return state;
   }

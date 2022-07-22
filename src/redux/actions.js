@@ -5,6 +5,7 @@ export const GET_DETAILS = "GET_DETAILS"
 export const GET_SHOES_NAME = "GET_SHOES_NAME"
 export const ADD_ONE_TO_CART = 'ADD_ONE_TO_CART'
 export const DELETE_ONE_FROM_CART = 'DELETE_ONE_FROM_CART'
+export const FILTER_BY_BRAND = "FILTER_BY_BRAND"
 
 export function getAllShoes() {
   return async function (dispatch) {
@@ -53,9 +54,26 @@ export function addOneToCart(payload) {
 
 export function deleteOneToCart(payload){
     // console.log(payload)
-return ({
+  return ({
     type: DELETE_ONE_FROM_CART,
     payload
 })
 }
 
+export function getAllBrands(){
+  return async function(){
+    const results = await axios(`http://localhost:3001/brands`)
+    
+  }
+}
+
+export function filterByBrand(payload){
+  return async function(dispatch){
+    const results = await axios(`http://localhost:3001/shoes?brand=${payload}`)
+    console.log(results.data)
+    return dispatch({
+      type: FILTER_BY_BRAND,
+      payload: results.data
+    })
+  }
+}
