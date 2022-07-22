@@ -35,20 +35,19 @@ export default function rootReducer(state = initialState, action) {
       const cartProducts = allProducts.filter(
         (product) => product.id === action.payload
       );
-      console.log(cartProducts);
+      console.log(cartProducts, "AÑADIDO");
       return {
         ...state,
         cart : [...state.cart, ...cartProducts]
       };
 
-      case DELETE_ONE_FROM_CART:
-        const productsToDelete = state.products
-         productsToDelete.filter((product) => product.id !== action.payload)
-
-        return {
-          ...state,
-          cart : state.cart
-        }
+    case DELETE_ONE_FROM_CART:
+      const productsToDelete = state.products
+       productsToDelete.filter((product) => product.id !== action.payload)
+      return {
+        ...state,
+        cart : state.cart
+      }
     default:
       return state;
   }
