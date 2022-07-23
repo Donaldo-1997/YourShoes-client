@@ -32,10 +32,18 @@ margin-bottom: 1px;
 }
 
 .container{
-  background: #D9D9D9;
+  background: #f87d2d;
   padding-bottom: 18%;
+  height: 89px;
 }
 
 .cardImg{
-  width: 100%
+  width: 100%;
+}
+
+.infoContainer{
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
