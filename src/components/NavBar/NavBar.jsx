@@ -8,8 +8,6 @@ import { FaHeart } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import {Link} from 'react-router-dom'
 import styles from './NavBar.module.css'
-import { getAllShoes } from "../../redux/actions";
-import { useDispatch } from "react-redux";
 // import GoogleLogin from 'react-google-login';
 
 export default function NavBar({setCurrentPage, handleReset}) {
@@ -21,7 +19,7 @@ export default function NavBar({setCurrentPage, handleReset}) {
   return (
     <Navbar bg="light" expand="lg" className={styles.navbar}>
       <Container fluid>
-        <button onClick={(e) => handleReset(e)}>
+        <button onClick={(e) => handleReset(e)} className={styles.resetButton}>
           <Navbar.Brand className={styles.yourShoes}>Your<span>Shoes</span></Navbar.Brand>
         </button>
         <Navbar.Toggle aria-controls="navbarScroll" />

@@ -32,3 +32,8 @@ color: #000000;
     position: fixed;
     z-index: 100;
 }
+
+.resetButton{
+    border-style: none;
+    background-color: transparent;
+}
