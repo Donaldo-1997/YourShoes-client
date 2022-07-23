@@ -6,6 +6,7 @@ export const GET_SHOES_NAME = "GET_SHOES_NAME"
 export const ADD_ONE_TO_CART = 'ADD_ONE_TO_CART'
 export const DELETE_ONE_FROM_CART = 'DELETE_ONE_FROM_CART'
 export const FILTER_BY_BRAND = "FILTER_BY_BRAND"
+export const POST_USER = 'POST_USER'
 
 export function getAllShoes() {
   return async function (dispatch) {
@@ -77,3 +78,21 @@ export function filterByBrand(payload){
     })
   }
 }
+
+export function postUser(payload) {
+  console.log('payload',payload)
+  return async function (dispatch) {
+      try {
+          var json = await axios.post(`http://localhost:3001/login/signup`, payload)
+     
+          dispatch({
+              type: POST_USER,
+              payload:json
+          });
+      } catch (error) {
+          console.log(error)
+          
+      }
+     
+  }
+};

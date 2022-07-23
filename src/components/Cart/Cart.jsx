@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styles from "./Cart.module.css";
 import { useSelector } from "react-redux/es/exports";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 export default function Cart() {
@@ -40,13 +41,14 @@ export default function Cart() {
               <button onClick={(e) => deleteProduct(e)} id={prod.id}>
                 Eliminar
               </button>
+              <Link to='/'><button>Volver</button></Link>
             </div>
           );
         })
       ) : (
         <div className={styles.container2}>
           <p>Tu carrito está vacío</p>
-          <p>Vuelve y escoge tus zapas favoritas</p>
+          <Link to='/' ><p>Vuelve y escoge tus zapas favoritas</p></Link>
         </div>
       )}
     </div>

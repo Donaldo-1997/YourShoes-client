@@ -5,6 +5,7 @@ import {
   GET_ALL_SHOES,
   GET_DETAILS,
   GET_SHOES_NAME,
+  POST_USER,
 } from "./actions";
 
 const initialState = {
@@ -60,6 +61,11 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         filteredProducts: action.payload,
         products: action.payload
+      }
+      case POST_USER: {
+        return {
+          ...state,
+        };
       }
     default:
       return state;

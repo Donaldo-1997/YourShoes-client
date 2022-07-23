@@ -59,7 +59,7 @@ export default function HomePage() {
       <Banner></Banner>
       <div>
         <select onChange={(e) => handleFilter(e)} value={brandFilter}>
-          <option value={"default"} hidden>Marcas</option>
+          <option value={"default"} >Marcas</option>
           <option value="Vans">Vans</option>
           <option value="Converse">Converse</option>
           <option value="Pampa">Pampa</option>
