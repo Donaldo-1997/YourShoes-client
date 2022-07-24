@@ -77,8 +77,8 @@ export default function HomePage() {
         handleReset={handleReset}
       ></NavBar>
       <Banner></Banner>
-      <div>
-        <select onChange={(e) => handleFilterBrand(e)} value={brandFilter}>
+      <div className={styles.filtersContainer}>
+        <select onChange={(e) => handleFilterBrand(e)} value={brandFilter} className={styles.brandSelect}>
           <option value={"default"} disabled>
             Marcas
           </option>
@@ -92,12 +92,12 @@ export default function HomePage() {
           <option value="Moleca">Moleca</option>
           <option value="Faraon">Faraon</option>
         </select>
+        <form onSubmit={handleFilterByPrice}>
+          <input value={priceMin} type="search" onChange={(e) => handleInputPriceMin(e)} placeholder="Precio min." className={styles.priceFilter}/>
+          <input value={priceMax} type="search" onChange={(e) => handleInputPriceMax(e)} placeholder="Precio max." className={styles.priceFilter}/>
+          <button onClick={(e) => handleFilterByPrice(e)} type="submit" className={styles.priceButton}>➤</button>
+        </form>
       </div>
-      <form onSubmit={handleFilterByPrice}>
-        <input value={priceMin} type="search" onChange={(e) => handleInputPriceMin(e)}/>
-        <input value={priceMax} type="search" onChange={(e) => handleInputPriceMax(e)}/>
-        <button onClick={(e) => handleFilterByPrice(e)} type="submit"/>
-      </form>
       <Pagination
         shoesPerPage={shoesPerPage}
         allProducts={allProducts.length}
