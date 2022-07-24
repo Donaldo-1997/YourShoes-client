@@ -2,7 +2,7 @@ import {
   ADD_ONE_TO_CART,
   DELETE_ONE_FROM_CART,
   FILTER_BY_BRAND,
-  FILTER_BY_CATEGORIES,
+  FILTER_BY_PRICE,
   GET_ALL_SHOES,
   GET_DETAILS,
   GET_SHOES_NAME,
@@ -64,23 +64,25 @@ export default function rootReducer(state = initialState, action) {
         filteredProducts: action.payload,
         products: action.payload
       }
-      case FILTER_BY_CATEGORIES:
-      console.log("hola", action.payload)
+
+      case FILTER_BY_PRICE:
       return{
         ...state,
         filteredProducts: action.payload,
         products: action.payload
       }
-      case POST_USER: {
-        return {
-          ...state,
-        };
-      }
-      case LOGIN_USER: {
-        return {
-          ...state,
-        };
-      }
+
+    case POST_USER: {
+      return {
+        ...state,
+      };
+    }
+
+    case LOGIN_USER: {
+      return {
+        ...state,
+      };
+    }
     
     default:
       return state;

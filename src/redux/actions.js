@@ -8,7 +8,7 @@ export const DELETE_ONE_FROM_CART = 'DELETE_ONE_FROM_CART'
 export const FILTER_BY_BRAND = "FILTER_BY_BRAND"
 export const POST_USER = 'POST_USER'
 export const LOGIN_USER = 'LOGIN_USER'
-export const FILTER_BY_CATEGORIES = 'FILTER_BY_CATEGORIES'
+export const FILTER_BY_PRICE = 'FILTER_BY_PRICE'
 
 
 export function getAllShoes() {
@@ -66,7 +66,7 @@ export function deleteOneToCart(payload){
 
 export function getAllBrands(){
   return async function(){
-    const results = await axios(`http://localhost:3001/brands`)
+    await axios(`http://localhost:3001/brands`)
     
   }
 }
@@ -74,7 +74,7 @@ export function getAllBrands(){
 export function filterByBrand(payload){
   return async function(dispatch){
     const results = await axios(`http://localhost:3001/shoes?brand=${payload}`)
-    console.log(results.data)
+    //console.log(results.data)
     return dispatch({
       type: FILTER_BY_BRAND,
       payload: results.data
@@ -82,12 +82,12 @@ export function filterByBrand(payload){
   }
 }
 
-export function filterByCategories(payload){
+export function filterByPrice(priceMin, priceMax){
+  //console.log("precio", priceMax)
   return async function(dispatch){
-    const results = await axios(`http://localhost:3001/shoes?brand=${payload}`)
-    console.log(results.data)
+    const results = await axios(`http://localhost:3001/shoes?priceMin=${priceMin}&priceMax=${priceMax}`)
     return dispatch({
-      type: FILTER_BY_CATEGORIES,
+      type: FILTER_BY_PRICE,
       payload: results.data
     })
   }
