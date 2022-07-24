@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addOneToCart, getDetails } from "../../redux/actions";
 import { useParams, Link } from "react-router-dom";
 import styles from "./ProductDetail.module.css";
-
+import NavBar from "../NavBar/NavBar"
 export default function ProductDetail() {
   const dispatch = useDispatch();
   let { id } = useParams();
@@ -38,12 +38,16 @@ export default function ProductDetail() {
   };
 
   return (
-    <div>
+    
+        <div>
+       <Link to="/">
+              <button>Return</button>
+            </Link>
       {myShoes ? (
         <div className={styles.divCard}>
           <img src={myShoes.image} alt="imgShoes not found" />
           <div className={styles.divContent}>
-            <h1>{myShoes.title}</h1>
+            <h1 className={styles.title}>{myShoes.title}</h1>
             <h3>${myShoes.price}</h3>
             <h5>descripcion del producto</h5>
             <h1>Size: </h1>
@@ -60,10 +64,10 @@ export default function ProductDetail() {
               <option value="44">44</option>
             </select>
             <div className={styles.buttons}>
-              <button className={styles}>Comprar</button> \\ agregar un LINK to
+              <button className={styles.buy}>Comprar</button> \\ agregar un LINK to
               hacia el carrito
               <button
-                className={styles}
+                className={styles.cart}
                 onClick={(e) => onClick(e)}
                 id={myShoes.id}
               >
@@ -86,5 +90,8 @@ export default function ProductDetail() {
         </div>
       )}
     </div>
+    
+    
+    
   );
 }
