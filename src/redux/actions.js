@@ -8,7 +8,8 @@ export const DELETE_ONE_FROM_CART = 'DELETE_ONE_FROM_CART'
 export const FILTER_BY_BRAND = "FILTER_BY_BRAND"
 export const POST_USER = 'POST_USER'
 export const LOGIN_USER = 'LOGIN_USER'
-export const LOGIN_GOOGLE = 'LOGIN_GOOGLE'
+export const FILTER_BY_CATEGORIES = 'FILTER_BY_CATEGORIES'
+
 
 export function getAllShoes() {
   return async function (dispatch) {
@@ -81,6 +82,19 @@ export function filterByBrand(payload){
   }
 }
 
+export function filterByCategories(payload){
+  return async function(dispatch){
+    const results = await axios(`http://localhost:3001/shoes?brand=${payload}`)
+    console.log(results.data)
+    return dispatch({
+      type: FILTER_BY_CATEGORIES,
+      payload: results.data
+    })
+  }
+}
+
+
+
 export function postUser(payload) {
   console.log('payload',payload)
   return async function (dispatch) {
@@ -117,14 +131,3 @@ export function Login(payload) {
   }
 };
 
-export function google() {
-  return async function (dispatch) {
-    const results = await axios(`http://localhost:3001/google`);
-    // console.log(results)
-    dispatch({
-      type: LOGIN_GOOGLE,
-      payload: results.data,
-    });
-    console.log(results.data)
-  };
-}

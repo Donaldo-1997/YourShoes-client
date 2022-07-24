@@ -35,9 +35,12 @@ export default function HomePage() {
   };
   //Paginado//
 
-  const handleFilter = (e) => {
+  const handleFilterBrand = (e) => {
+    
     dispatch(filterByBrand(e.target.value))
     setBrandFilter(e.target.value)
+    setCurrentPage(1)
+
   }
 
   const handleReset = (e) => {
@@ -58,18 +61,28 @@ export default function HomePage() {
       <NavBar setCurrentPage={setCurrentPage} handleReset={handleReset}></NavBar>
       <Banner></Banner>
       <div>
-        <select onChange={(e) => handleFilter(e)} value={brandFilter}>
-          <option value={"default"} >Marcas</option>
+        <select onChange={(e) => handleFilterBrand(e)} value={brandFilter} >
+          <option value={'default'} disabled >Marcas</option>
           <option value="Vans">Vans</option>
           <option value="Converse">Converse</option>
-          <option value="Pampa">Pampa</option>
           <option value="Crocs">Crocs</option>
-          <option value="Vestir">Vestir</option>
           <option value="Nike">Nike</option>
           <option value="Vizzano">Vizzano</option>
-          <option value="Bringanti">Bringanti</option>
           <option value="adidas">Adidas</option>
-          <option value="Sport">Sport</option>
+          <option value="Caterpillar">Caterpillar</option>
+          <option value="Moleca">Moleca</option>
+          <option value="Faraon">Faraon</option>
+        </select>
+      </div>
+      <div>
+        <select onChange={(e) => handleFilterBrand(e)} value={brandFilter} >
+          <option value={'default'} disabled >Categorias</option>
+          <option value="Vans">Vans</option>
+          <option value="Converse">Converse</option>
+          <option value="Crocs">Crocs</option>
+          <option value="Nike">Nike</option>
+          <option value="Vizzano">Vizzano</option>
+          <option value="adidas">Adidas</option>
           <option value="Caterpillar">Caterpillar</option>
           <option value="Moleca">Moleca</option>
           <option value="Faraon">Faraon</option>

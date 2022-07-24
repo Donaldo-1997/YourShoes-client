@@ -19,7 +19,7 @@ export default function LogIn() {
 
   const [formularioEnviado, setformularioEnviado] = useState(false);
   return (
-    <div className={styles.contenedor}>
+      <div className={styles.contenedor}>
   
       <Formik
         initialValues={{
@@ -63,8 +63,10 @@ export default function LogIn() {
         }}
       >
         {({ errors }) => (
+            
           <Form className={styles.formulario}>
             <div>
+               <div className={styles.yourShoes}>Your<span>Shoes</span></div>
               <label htmlFor="email">Correo: </label>
               <Field
                 type="email"

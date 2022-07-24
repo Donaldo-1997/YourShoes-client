@@ -2,10 +2,10 @@ import {
   ADD_ONE_TO_CART,
   DELETE_ONE_FROM_CART,
   FILTER_BY_BRAND,
+  FILTER_BY_CATEGORIES,
   GET_ALL_SHOES,
   GET_DETAILS,
   GET_SHOES_NAME,
-  LOGIN_GOOGLE,
   LOGIN_USER,
   POST_USER,
 } from "./actions";
@@ -58,6 +58,13 @@ export default function rootReducer(state = initialState, action) {
       }
 
     case FILTER_BY_BRAND:
+      // console.log("hola", action.payload)
+      return{
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+      case FILTER_BY_CATEGORIES:
       console.log("hola", action.payload)
       return{
         ...state,
@@ -74,12 +81,7 @@ export default function rootReducer(state = initialState, action) {
           ...state,
         };
       }
-      case LOGIN_GOOGLE: {
-        return {
-          ...state
-          
-        }
-      }
+    
     default:
       return state;
   }

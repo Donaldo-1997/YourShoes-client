@@ -8,7 +8,7 @@ import { FaHeart } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import {Link} from 'react-router-dom'
 import styles from './NavBar.module.css'
-import Button from 'react-bootstrap/Button';
+
 
 
 

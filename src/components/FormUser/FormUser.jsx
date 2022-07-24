@@ -102,6 +102,7 @@ export default function Formulario() {
         {({ errors }) => (
           <Form className={styles.formulario}>
             <div>
+            <div className={styles.yourShoes}>Your<span>Shoes</span></div>
               <label htmlFor="name">Name: </label>
               <Field type="text" id="name" name="name" placeholder="Jhon Doe" />
               <ErrorMessage
