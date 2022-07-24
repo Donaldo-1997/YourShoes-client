@@ -40,18 +40,18 @@ export default function ProductDetail() {
   return (
     
         <div>
-       <Link to="/">
-              <button>Return</button>
-            </Link>
+       <Link to="/" >
+              <button className={styles.yourshoes}>YOUR<span className={styles.shoes}>SHOES</span></button>
+       </Link>
       {myShoes ? (
         <div className={styles.divCard}>
-          <img src={myShoes.image} alt="imgShoes not found" />
+          <img src={myShoes.image} alt="imgShoes not found" className={styles.imagen}/>
           <div className={styles.divContent}>
             <h1 className={styles.title}>{myShoes.title}</h1>
-            <h3>${myShoes.price}</h3>
+            <h3 className={styles.price}>${myShoes.price}</h3>
             <h5>descripcion del producto</h5>
-            <h1>Size: </h1>
-            <select>
+            <h1 className={styles.size}>Size: </h1>
+            <select className={styles.select}>
               <option value="35">35</option>
               <option value="36">36</option>
               <option value="37">37</option>
@@ -64,8 +64,7 @@ export default function ProductDetail() {
               <option value="44">44</option>
             </select>
             <div className={styles.buttons}>
-              <button className={styles.buy}>Comprar</button> \\ agregar un LINK to
-              hacia el carrito
+              <button className={styles.cart}>Comprar</button> 
               <button
                 className={styles.cart}
                 onClick={(e) => onClick(e)}
@@ -73,11 +72,8 @@ export default function ProductDetail() {
               >
                 Añadir al carro
               </button>{" "}
-              \\ solo envia el producto al carrito
+            
             </div>
-            <Link to="/">
-              <button>Return</button>
-            </Link>
           </div>
         </div>
       ) : (
