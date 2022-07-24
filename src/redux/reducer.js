@@ -5,6 +5,8 @@ import {
   GET_ALL_SHOES,
   GET_DETAILS,
   GET_SHOES_NAME,
+  LOGIN_GOOGLE,
+  LOGIN_USER,
   POST_USER,
 } from "./actions";
 
@@ -66,6 +68,17 @@ export default function rootReducer(state = initialState, action) {
         return {
           ...state,
         };
+      }
+      case LOGIN_USER: {
+        return {
+          ...state,
+        };
+      }
+      case LOGIN_GOOGLE: {
+        return {
+          ...state
+          
+        }
       }
     default:
       return state;

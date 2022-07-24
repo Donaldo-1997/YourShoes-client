@@ -11,15 +11,16 @@
 
 .formulario {
 	min-width: 400px;
+    min-height: 200px;
 	margin-top: 0px;
 	background: #fff;
 	border-radius: 5px;
 	padding: 20px;
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	box-shadow: rgba(0, 0, 0, 0.833) 0px 1px 4px;
 }
 
 .formulario > div {
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 }
 
 .formulario label {
@@ -37,7 +38,7 @@
 	border-radius: 5px;
 	border: 2px solid #e2e2e2;
 	font-size: 18px;
-	padding: 10px;
+	padding: 0px;
 	margin-bottom: 5px;
 	color: #1f1f1f;
 }
@@ -55,7 +56,7 @@
 
 .formulario button[type="submit"] {
 	display: block;
-	background: #0085FF;
+	background: #ff9d00;
 	font-weight: 600;
 	font-family: 'Open Sans', sans-serif;
 	border: none;
@@ -69,7 +70,7 @@
 }
 
 .formulario button[type="submit"]:hover {
-	background: #0051ff;
+	background: #ba740a;
 }
 
 .formulario .exito {

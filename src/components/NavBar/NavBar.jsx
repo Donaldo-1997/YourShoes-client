@@ -8,12 +8,11 @@ import { FaHeart } from "react-icons/fa";
 import { FaUserAlt } from "react-icons/fa";
 import {Link} from 'react-router-dom'
 import styles from './NavBar.module.css'
-// import GoogleLogin from 'react-google-login';
+import Button from 'react-bootstrap/Button';
+
+
 
 export default function NavBar({setCurrentPage, handleReset}) {
-  // const responseGoogle = (respuesta) =>{
-  //   console.log(respuesta)
-  // }
 
 
   return (
@@ -33,11 +32,13 @@ export default function NavBar({setCurrentPage, handleReset}) {
              <Link to='/cart' className={styles.Link}> <BsFillCartFill /></Link> 
             </Nav.Link>
             <Nav.Link href="#action2" className={styles.icon}>
-              {" "}
                <FaHeart />
             </Nav.Link>
-            <Nav.Link href="#action2" className={styles.icon}>
-               <FaUserAlt />
+            <Nav.Link href="#action3" className={styles.icon}>
+               <Link to='/login'><FaUserAlt  /></Link>
+            </Nav.Link>
+            <Nav.Link href="#action4" className={styles.icon}>
+               <Link to='/user'><Button variant="secondary" size="sm" >Registrate</Button></Link>
             </Nav.Link>
           </Nav>
           <Searchbar setCurrentPage={setCurrentPage}></Searchbar>

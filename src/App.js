@@ -4,6 +4,8 @@ import ProductDetail from './components/ProductDetail/ProductDetail';
 import './App.css';
 import Cart from './components/Cart/Cart';
 import FormUser from './components/FormUser/FormUser'
+import LogIn from './components/LogIn/LogIn';
+
 
 
 function App() {
@@ -11,9 +13,10 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<HomePage/>}/>
-          <Route path='/shoes/:id' element={<ProductDetail/>}/>
-          <Route path='/cart' element={<Cart/>}/>
-          <Route path='/user' element={<FormUser/>}/>
+          <Route exact path='/shoes/:id' element={<ProductDetail/>}/>
+          <Route exact path='/cart' element={<Cart/>}/>
+          <Route exact path='/user' element={<FormUser/>}/>
+          <Route exact path='/login' element={<LogIn/>}/>
         </Routes>
       </Router>
   );

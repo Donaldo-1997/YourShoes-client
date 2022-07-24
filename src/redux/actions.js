@@ -7,6 +7,8 @@ export const ADD_ONE_TO_CART = 'ADD_ONE_TO_CART'
 export const DELETE_ONE_FROM_CART = 'DELETE_ONE_FROM_CART'
 export const FILTER_BY_BRAND = "FILTER_BY_BRAND"
 export const POST_USER = 'POST_USER'
+export const LOGIN_USER = 'LOGIN_USER'
+export const LOGIN_GOOGLE = 'LOGIN_GOOGLE'
 
 export function getAllShoes() {
   return async function (dispatch) {
@@ -96,3 +98,33 @@ export function postUser(payload) {
      
   }
 };
+
+export function Login(payload) {
+  console.log('payload',payload)
+  return async function (dispatch) {
+      try {
+          var json = await axios.post(`http://localhost:3001/login/signin`, payload)
+     
+          dispatch({
+              type: LOGIN_USER,
+              payload:json
+          });
+      } catch (error) {
+          console.log(error)
+          
+      }
+     
+  }
+};
+
+export function google() {
+  return async function (dispatch) {
+    const results = await axios(`http://localhost:3001/google`);
+    // console.log(results)
+    dispatch({
+      type: LOGIN_GOOGLE,
+      payload: results.data,
+    });
+    console.log(results.data)
+  };
+}

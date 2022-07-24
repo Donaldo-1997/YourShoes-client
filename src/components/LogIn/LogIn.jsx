@@ -1,10 +1,105 @@
-import React from "react";
+import React, { useState } from "react";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import { useDispatch } from "react-redux";
+import { google, Login} from "../../redux/actions";
+import styles from "./LogIn.module.css";
+import { useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
 
-export default function LogIn(){
 
-    return (
-        <div>
-            Login
-        </div>
-    )
+
+
+export default function LogIn() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  
+
+  const [formularioEnviado, setformularioEnviado] = useState(false);
+  return (
+    <div className={styles.contenedor}>
+  
+      <Formik
+        initialValues={{
+          email: "",
+          password: "",
+        }}
+        onSubmit={(valores, { resetForm }) => {
+          resetForm();
+          dispatch(Login(valores));
+          console.log("formulario enviado");
+          console.log("post", valores);
+          setformularioEnviado(true);
+          setTimeout(() => setformularioEnviado(false), 5000);
+          navigate("/");
+        }}
+        validate={(valores) => {
+          let error = {};
+
+          if (!valores.email) {
+            error.email = "Ingresa tu Email";
+          } else if (
+            !/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
+              valores.email
+            )
+          ) {
+            error.email = "No debiste hacer eso";
+          }
+
+          if (!valores.password) {
+            error.password = "Ingresa tu Contrasena";
+          } else if (
+            !/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/.test(
+              valores.password
+            )
+          ) {
+            error.password =
+              "entre 8 y 16 caracteres, al menos un dígito, una minúscula, una mayúscula";
+          }
+
+          return error;
+        }}
+      >
+        {({ errors }) => (
+          <Form className={styles.formulario}>
+            <div>
+              <label htmlFor="email">Correo: </label>
+              <Field
+                type="email"
+                id="email"
+                name="email"
+                placeholder="correo@correo.com"
+              />
+              <ErrorMessage
+                name="email"
+                component={() => (
+                  <div className={styles.error}>{errors.email}</div>
+                )}
+              />
+            </div>
+            <div>
+              <label htmlFor="password">Contraseña: </label>
+              <Field
+                type="password"
+                id="password"
+                name="password"
+                placeholder="contraseña"
+              />
+              <ErrorMessage
+                name="password"
+                component={() => (
+                  <div className={styles.error}>{errors.password}</div>
+                )}
+              />
+            </div>
+            <button type="submit">Enviar</button>
+            {formularioEnviado && (
+              <p className={styles.exito}>Enviado con exito!</p>
+            )}
+            <a href="http://localhost:3001/google"><FcGoogle></FcGoogle> Accede con google</a>
+          </Form>
+        )}
+      </Formik>
+    </div>
+  );
 }
