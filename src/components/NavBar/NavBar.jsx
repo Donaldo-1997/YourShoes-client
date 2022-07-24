@@ -28,17 +28,14 @@ export default function NavBar({setCurrentPage, handleReset}) {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link href="#action1" className={styles.icon}>
+            <Nav.Link className={styles.icon}>
              <Link to='/cart' className={styles.Link}> <BsFillCartFill /></Link> 
             </Nav.Link>
-            <Nav.Link href="#action2" className={styles.icon}>
+            <Nav.Link  className={styles.icon}>
                <FaHeart />
             </Nav.Link>
-            <Nav.Link href="#action3" className={styles.icon}>
+            <Nav.Link  className={styles.icon}>
                <Link to='/login'><FaUserAlt  /></Link>
-            </Nav.Link>
-            <Nav.Link href="#action4" className={styles.icon}>
-               <Link to='/user'><Button variant="secondary" size="sm" >Registrate</Button></Link>
             </Nav.Link>
           </Nav>
           <Searchbar setCurrentPage={setCurrentPage}></Searchbar>
