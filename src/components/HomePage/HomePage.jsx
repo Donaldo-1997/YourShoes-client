@@ -85,7 +85,7 @@ export default function HomePage() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={styles.container}>
       <NavBar
         setCurrentPage={setCurrentPage}
         handleReset={handleReset}
