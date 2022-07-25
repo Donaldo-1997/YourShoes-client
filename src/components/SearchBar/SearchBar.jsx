@@ -4,6 +4,7 @@ import { getShoesName } from "../../redux/actions";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { FaSearch } from "react-icons/fa";
+import styles from './SearchBar.module.css'
 
 
 export default function Searchbar({setCurrentPage}) {
@@ -29,7 +30,8 @@ export default function Searchbar({setCurrentPage}) {
     setName('')
   };
   return (
-    <Form className="d-flex" onSubmit={(e) => handleSubmit(e)}>
+   
+    <Form className="d-flex" onSubmit={(e) => handleSubmit(e)}  >
             <Form.Control
               type="search"
               placeholder="Search"
@@ -40,5 +42,6 @@ export default function Searchbar({setCurrentPage}) {
             />
             <Button variant="outline-success" onClick={(e) => handleSubmit(e)}><FaSearch/></Button>
           </Form>
+          
   );
 }
