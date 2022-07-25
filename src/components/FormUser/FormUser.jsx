@@ -225,7 +225,7 @@ export default function Formulario() {
               <p className={styles.exito}>Enviado con exito!</p>
             )}
             
-            <Link to='/login'><a><FcDownLeft></FcDownLeft>Regresa</a></Link>
+            <Link to='/login' className={styles.link}><p><FcDownLeft></FcDownLeft>Regresa</p></Link>
 
           </Form>
         )}

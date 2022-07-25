@@ -7,7 +7,11 @@
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
-    margin-top: 19px;
+    margin-top: 0px;
+    /* background: linear-gradient(90deg, rgb(185, 134, 69) 0%, rgb(195, 97, 33) 35%, rgb(216, 90, 6) 95%); */
+    background: linear-gradient(90deg, rgb(216, 90, 6) 0%, rgb(195, 97, 33) 35%, rgb(185, 134, 69) 95%);
+    
+    height: 900px;
    
     
 }
@@ -26,7 +30,7 @@ justify-content: center;
 
 letter-spacing: 0.04em;
 
-color: #000000;
+color: #faeeee;
 }
 
 .yourShoes span{
@@ -36,7 +40,7 @@ color: #000000;
 .formulario {
 	min-width: 400px;
     min-height: 200px;
-	margin-top: 0px;
+	margin-top: 15px;
     background: linear-gradient(90deg, rgb(185, 134, 69) 0%, rgb(195, 97, 33) 35%, rgb(216, 90, 6) 95%);
 	border-radius: 5px;
 	padding: 20px;
@@ -52,7 +56,7 @@ color: #000000;
 	font-weight: 600;
 	font-size: 14px;
 	margin-bottom: 5px;
-	color: #1f1f1f;
+	color: #f2e7e7;
 }
 
 .formulario input,
@@ -64,7 +68,7 @@ color: #000000;
 	font-size: 18px;
 	padding: 0px;
 	margin-bottom: 5px;
-	color: #1f1f1f;
+	color: #f0e3e3;
 }
 
 .formulario input:focus {
@@ -73,8 +77,18 @@ color: #000000;
 }
 
 .formulario .error {
-	color: #e92b2d;
-	font-weight: 600;
+	color: #8d090b;
+    text-shadow:
+      0 0 7px rgb(205, 8, 8),
+      0 0 10px rgb(197, 7, 7),
+      0 0 21px rgb(141, 4, 4),
+      0 0 42px rgb(255, 0, 0),
+      0 0 82px rgb(255, 0, 34),
+      0 0 92px rgb(255, 0, 0),
+      0 0 102px rgb(255, 0, 47),
+      0 0 151px rgb(255, 0, 30);
+;
+font-weight: 600;
 	font-size: 12px;
 }
 
@@ -106,4 +120,10 @@ color: #000000;
 
 .formulario input[type="radio"] {
 	width: auto;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 20px;
+color: #f9efef;
 }

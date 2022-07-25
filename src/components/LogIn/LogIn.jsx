@@ -100,11 +100,11 @@ export default function LogIn() {
             {formularioEnviado && (
               <p className={styles.exito}>Enviado con exito!</p>
             )}
-            <a href="http://localhost:3001/google"><FcGoogle></FcGoogle> Accede con google</a>
-            <br></br>
-            <Link to='/user'><a><FcGoodDecision></FcGoodDecision>Registrate</a></Link>
-            <br></br>
-            <Link to='/'><a><FcDownLeft></FcDownLeft>Regresa</a></Link>
+            <a href="http://localhost:3001/google" className={styles.link}><FcGoogle></FcGoogle> Accede con google</a>
+            
+            <Link to='/user' className={styles.link}><p><FcGoodDecision></FcGoodDecision>Registrate</p></Link>
+            
+            <Link to='/' className={styles.link}><p><FcDownLeft></FcDownLeft>Regresa</p></Link>
 
           </Form>
         )}
