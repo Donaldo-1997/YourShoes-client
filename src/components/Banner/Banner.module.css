@@ -1,4 +1,10 @@
 
+.container {
+    margin-top: 0px;
+    position: relative;
+}
+
+
 .yourShoes{
     font-family: 'Anton';
     font-style: normal;
