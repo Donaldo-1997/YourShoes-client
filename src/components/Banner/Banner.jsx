@@ -15,32 +15,28 @@ export default function Banner() {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>YOURSHOES</h3>
-            <p>Elige tu marca</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={2000}>
           <img
             className="d-block w-100"
             style={{ height: "500px" }}
-            src="https://www.paris.cl/on/demandware.static/-/Sites/es_CL/dw0c086768/marketing/imagenes/zapatillas/banner_zapatillas_larga-vida_mar22.jpg"
+            src="https://newsolez.com/wp-content/uploads/2018/02/banner_addidas_originals_promo_b7ad4407-7dd0-4ca9-8881-29d04bbda68a_1600x681-e1563918699775.png"
             alt="Second slide"
           />
           <Carousel.Caption>
-            <h3>YOURSHOES</h3>
-            <p>Chouse your Brand</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={2000}>
           <img
             className="d-block w-100"
             style={{ height: "500px" }}
-            src="https://intersport-f2e7.kxcdn.com/web/image/573531/ESPECIAL-ZAPATILLAS-BANNER-1280-X-333.jpg?access_token=a9bf158a-82e5-4174-b117-a4ec7170212d"
+            src="https://www.fotoefectos.com/images/202207/25/fotoefectos.com__final_7229072012361613604_.jpg?act=96"
             alt="Third slide"
           />
           <Carousel.Caption>
-            <h3>YOURSHOES</h3>
-            <p>Chouse your Brand</p>
+          <div className={styles.yourShoes}>Your<span>Shoes</span></div>
+            <p>Elige tu marca</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
