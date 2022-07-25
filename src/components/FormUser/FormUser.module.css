@@ -8,6 +8,7 @@
 	align-items: flex-start;
 	justify-content: center;
     margin-top: 19px;
+   
     
 }
 
@@ -36,7 +37,7 @@ color: #000000;
 	min-width: 400px;
     min-height: 200px;
 	margin-top: 0px;
-	background: #fff;
+    background: linear-gradient(90deg, rgb(185, 134, 69) 0%, rgb(195, 97, 33) 35%, rgb(216, 90, 6) 95%);
 	border-radius: 5px;
 	padding: 20px;
 	box-shadow: rgba(0, 0, 0, 0.833) 0px 1px 4px;
