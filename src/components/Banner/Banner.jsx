@@ -1,11 +1,12 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel } from "react-bootstrap";
+import styles from './Banner.module.css'
 
 export default function Banner() {
   return (
     <>
-      <Carousel>
+      <Carousel className={styles.container}>
         <Carousel.Item interval={2000}>
           <img
             className="d-block w-100"
