@@ -76,6 +76,8 @@ export default function HomePage() {
     e.preventDefault();
     dispatch(getAllShoes());
     setBrandFilter("default");
+    setPriceMax("")
+    setPriceMin("")
   };
 
   useEffect(() => {
