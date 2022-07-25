@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getAllShoes, getAllBrands, filterByBrand, filterByPrice } from "../../redux/actions";
+import { getAllShoes, getAllBrands, filterByBrand, filterByPrice, brandAndPriceFilter } from "../../redux/actions";
 import ProductCards from "../ProductCards/ProductCards";
 import Pagination from "../Pagination/Pagination";
 import Banner from "../Banner/Banner";
@@ -40,17 +40,29 @@ export default function HomePage() {
   //Paginado//
 
   const handleFilterBrand = (e) => {
-    dispatch(filterByBrand(e.target.value));
+    if(priceMin !== "" && priceMax !== ""){
+      dispatch(brandAndPriceFilter(brandFilter, priceMin, priceMax))
+      .then(res => console.log(res))
+      .catch(err => alert(err.response.data))
+    }else{
+      dispatch(filterByBrand(e.target.value));
+    }
     setBrandFilter(e.target.value);
     setCurrentPage(1);
   };
 
   const handleFilterByPrice = (e) => {
     e.preventDefault()
-    dispatch(filterByPrice(priceMin, priceMax))
+    if(brandFilter !== "default"){
+      dispatch(brandAndPriceFilter(brandFilter, priceMin, priceMax))
+      .then(res => console.log(res))
+      .catch(err => alert(err.response.data))
+    }else{
+      dispatch(filterByPrice(priceMin, priceMax))
+    }
     setCurrentPage(1)
-    setPriceMin('')
-    setPriceMax('')
+    setPriceMin("")
+    setPriceMax("")
   }
 
   const handleInputPriceMin = (e) => {
