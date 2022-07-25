@@ -3,11 +3,12 @@
 
 
 .contenedor {
-	min-height: 50vh;
+	
 	display: flex;
 	align-items: flex-start;
 	justify-content: center;
-    margin-top: 50px;
+    margin-top: 19px;
+    
 }
 
 .yourShoes{

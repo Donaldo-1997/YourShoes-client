@@ -115,7 +115,7 @@ export default function Formulario() {
               />
             </div>
             <div>
-              <label htmlFor="surname">Surname: </label>
+              <label htmlFor="surname">Apellido: </label>
               <Field
                 type="text"
                 id="surname"
@@ -130,7 +130,7 @@ export default function Formulario() {
               />
             </div>
             <div>
-              <label htmlFor="nickname">Nikname: </label>
+              <label htmlFor="nickname">Nombre de Usuario: </label>
               <Field
                 type="text"
                 id="nickname"
