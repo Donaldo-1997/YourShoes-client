@@ -49,6 +49,8 @@ export default function HomePage() {
     e.preventDefault()
     dispatch(filterByPrice(priceMin, priceMax))
     setCurrentPage(1)
+    setPriceMin('')
+    setPriceMax('')
   }
 
   const handleInputPriceMin = (e) => {
