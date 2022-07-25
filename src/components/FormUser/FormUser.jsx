@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { postUser } from "../../redux/actions";
 import styles from "./FormUser.module.css";
 import { useNavigate } from "react-router-dom";
+import {FcDownLeft} from "react-icons/fc";
+import { Link } from "react-router-dom";
 // import * as Yup from "yup";
 
 //name, surname, nickname, email, phone_number, date_of_Birth, address
@@ -44,21 +46,21 @@ export default function Formulario() {
           if (!valores.name) {
             error.name = "Ingresa tu nombre";
           } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.name)) {
-            error.name = "No debiste hacer eso";
+            error.name = "Tu nombre debe contener solo letras";
           }
 
           //validacion del apellido
           if (!valores.surname) {
             error.surname = "Ingresa tu Apellido";
           } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.surname)) {
-            error.surname = "No debiste hacer eso";
+            error.surname = "Tu apellido debe contener solo letras";
           }
 
           // validacion del nick name
           if (!valores.nickname) {
             error.nickname = "Ingresa tu Sobrenombre";
           } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nickname)) {
-            error.nickname = "No debiste hacer eso";
+            error.nickname = "Tu nickname debe contener solo letras";
           }
 
           if (!valores.email) {
@@ -68,13 +70,13 @@ export default function Formulario() {
               valores.email
             )
           ) {
-            error.email = "No debiste hacer eso";
+            error.email = "Tu email debe ser en formato mail(@)";
           }
 
           if (!valores.phone_number) {
             error.phone_number = "Ingresa tu Celular";
           } else if (!/^[0-9,$]*$/.test(valores.phone_number)) {
-            error.phone_number = "No debiste hacer eso";
+            error.phone_number = "Solo puedes escribir numeros";
           }
 
           if (!valores.date_of_Birth) {
@@ -222,6 +224,9 @@ export default function Formulario() {
             {formularioEnviado && (
               <p className={styles.exito}>Enviado con exito!</p>
             )}
+            
+            <Link to='/login'><a><FcDownLeft></FcDownLeft>Regresa</a></Link>
+
           </Form>
         )}
       </Formik>

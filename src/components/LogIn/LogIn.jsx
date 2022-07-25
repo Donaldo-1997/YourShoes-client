@@ -4,7 +4,7 @@ import {useDispatch } from "react-redux";
 import {Login} from "../../redux/actions";
 import styles from "./LogIn.module.css";
 import { useNavigate } from "react-router-dom";
-import { FcGoogle , FcGoodDecision} from "react-icons/fc";
+import { FcGoogle , FcGoodDecision,FcDownLeft} from "react-icons/fc";
 import { Link } from "react-router-dom";
 
 
@@ -103,6 +103,9 @@ export default function LogIn() {
             <a href="http://localhost:3001/google"><FcGoogle></FcGoogle> Accede con google</a>
             <br></br>
             <Link to='/user'><a><FcGoodDecision></FcGoodDecision>Registrate</a></Link>
+            <br></br>
+            <Link to='/'><a><FcDownLeft></FcDownLeft>Regresa</a></Link>
+
           </Form>
         )}
       </Formik>
