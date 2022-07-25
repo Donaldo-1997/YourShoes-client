@@ -29,13 +29,13 @@ export default function NavBar({setCurrentPage, handleReset}) {
             navbarScroll
           >
             <Nav.Link className={styles.icon}>
-             <Link to='/cart' className={styles.Link}> <BsFillCartFill /></Link> 
+             <Link to='/cart' className={styles.Link}> <BsFillCartFill style={{ color: "orange" }} /></Link> 
             </Nav.Link>
             <Nav.Link  className={styles.icon}>
-               <FaHeart />
+               <FaHeart style={{ color: "orange" }} />
             </Nav.Link>
             <Nav.Link  className={styles.icon}>
-               <Link to='/login'><FaUserAlt  /></Link>
+               <Link to='/login'><FaUserAlt  style={{ color: "orange" }} /></Link>
             </Nav.Link>
           </Nav>
           <Searchbar setCurrentPage={setCurrentPage}></Searchbar>
