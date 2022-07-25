@@ -4,6 +4,9 @@ import { addOneToCart, getDetails } from "../../redux/actions";
 import { useParams, Link } from "react-router-dom";
 import styles from "./ProductDetail.module.css";
 import NavBar from "../NavBar/NavBar"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function ProductDetail() {
   const dispatch = useDispatch();
   let { id } = useParams();
@@ -23,7 +26,9 @@ export default function ProductDetail() {
     localStorage.getItem('products')
    }
 
-   
+  //  const addToCartToast = () => {
+    
+  // }
 
    useEffect(() => {
     if(cartProducts.length){
@@ -35,6 +40,11 @@ export default function ProductDetail() {
     e.preventDefault();
     // console.log('onclick', e.target.id)
     dispatch(addOneToCart(e.target.id));
+    toast.success("Tu producto fue agregado al carrito!", {
+      className: "cart-toast",
+      draggable: true,
+      position: toast.POSITION.TOP_CENTER,
+    })
   };
 
   return (
@@ -72,7 +82,7 @@ export default function ProductDetail() {
               >
                 Añadir al carro
               </button>{" "}
-            
+              <ToastContainer />
             </div>
           </div>
         </div>
