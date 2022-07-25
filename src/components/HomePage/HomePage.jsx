@@ -40,8 +40,8 @@ export default function HomePage() {
   //Paginado//
 
   const handleFilterBrand = (e) => {
-    if(priceMin !== "" && priceMax !== ""){
-      dispatch(brandAndPriceFilter(brandFilter, priceMin, priceMax))
+    if(priceMin !== "" && priceMax !== "" ){
+      dispatch(brandAndPriceFilter(e.target.value, priceMin, priceMax))
       .then(res => console.log(res))
       .catch(err => alert(err.response.data))
     }else{
@@ -54,6 +54,7 @@ export default function HomePage() {
   const handleFilterByPrice = (e) => {
     e.preventDefault()
     if(brandFilter !== "default"){
+      setCurrentPage(1)
       dispatch(brandAndPriceFilter(brandFilter, priceMin, priceMax))
       .then(res => console.log(res))
       .catch(err => alert(err.response.data))
