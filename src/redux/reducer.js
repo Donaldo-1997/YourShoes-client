@@ -8,6 +8,7 @@ import {
   GET_SHOES_NAME,
   LOGIN_USER,
   POST_USER,
+  BRAND_PRICE_FILTER
 } from "./actions";
 
 const initialState = {
@@ -65,7 +66,14 @@ export default function rootReducer(state = initialState, action) {
         products: action.payload
       }
 
-      case FILTER_BY_PRICE:
+    case FILTER_BY_PRICE:
+      return{
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+
+    case BRAND_PRICE_FILTER:
       return{
         ...state,
         filteredProducts: action.payload,

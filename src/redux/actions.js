@@ -9,6 +9,7 @@ export const FILTER_BY_BRAND = "FILTER_BY_BRAND"
 export const POST_USER = 'POST_USER'
 export const LOGIN_USER = 'LOGIN_USER'
 export const FILTER_BY_PRICE = 'FILTER_BY_PRICE'
+export const BRAND_PRICE_FILTER = 'BRAND_PRICE_FILTER'
 
 
 export function getAllShoes() {
@@ -94,7 +95,6 @@ export function filterByPrice(priceMin, priceMax){
 }
 
 
-
 export function postUser(payload) {
   console.log('payload',payload)
   return async function (dispatch) {
@@ -130,4 +130,19 @@ export function Login(payload) {
      
   }
 };
+
+export function brandAndPriceFilter(brand, priceMin, priceMax){
+  return async function (dispatch){
+    try{
+      const results = await axios(`http://localhost:3001/shoes?brand=${brand}&priceMin=${priceMin}&priceMax=${priceMax}`)
+      dispatch({
+        type: BRAND_PRICE_FILTER,
+        payload: results.data
+      })
+      return results.data
+    }catch(err){
+      throw err
+    }
+  }
+}
 

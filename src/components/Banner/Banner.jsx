@@ -6,7 +6,7 @@ import styles from './Banner.module.css'
 export default function Banner() {
   return (
     <>
-      <Carousel className={styles.container}>
+      <Carousel>
         <Carousel.Item interval={2000}>
           <img
             className="d-block w-100"
