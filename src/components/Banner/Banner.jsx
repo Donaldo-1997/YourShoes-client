@@ -7,7 +7,7 @@ export default function Banner() {
   return (
     <>
       <Carousel className={styles.container}>
-        <Carousel.Item interval={2000}>
+        <Carousel.Item interval={5000}>
           <img
             className="d-block w-100"
             style={{ height: "500px" }}
@@ -19,7 +19,7 @@ export default function Banner() {
             <p>Elige tu marca</p>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item interval={2000}>
+        <Carousel.Item interval={5000}>
           <img
             className="d-block w-100"
             style={{ height: "500px" }}
@@ -29,7 +29,7 @@ export default function Banner() {
           <Carousel.Caption>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item interval={2000}>
+        <Carousel.Item interval={5000}>
           <img
             className="d-block w-100"
             style={{ height: "500px" }}
