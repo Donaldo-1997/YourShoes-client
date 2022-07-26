@@ -36,10 +36,8 @@ export default function ProductDetail() {
     saveLocalStorage()}
    },[cartProducts])
 
-  const onClick = (e) => {
-    e.preventDefault();
-    // console.log('onclick', e.target.id)
-    dispatch(addOneToCart(e.target.id));
+  const addToCart = (id) => {
+    dispatch(addOneToCart(id));
     toast.success("Tu producto fue agregado al carrito!", {
       className: "cart-toast",
       draggable: true,
@@ -77,7 +75,7 @@ export default function ProductDetail() {
               <button className={styles.cart}>Comprar</button> 
               <button
                 className={styles.cart}
-                onClick={(e) => onClick(e)}
+                onClick={() => addToCart(myShoes.id)}
                 id={myShoes.id}
               >
                 Añadir al carro
