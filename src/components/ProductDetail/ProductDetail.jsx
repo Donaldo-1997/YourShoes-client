@@ -31,10 +31,9 @@ export default function ProductDetail() {
     saveLocalStorage()}
    },[cartProducts])
 
-  const onClick = (e) => {
-    e.preventDefault();
-    // console.log('onclick', e.target.id)
-    dispatch(addOneToCart(e.target.id));
+  const addToCart = (id) => {
+    console.log('onclick',id)
+    dispatch(addOneToCart(id));
   };
 
   return (
@@ -67,7 +66,7 @@ export default function ProductDetail() {
               <button className={styles.cart}>Comprar</button> 
               <button
                 className={styles.cart}
-                onClick={(e) => onClick(e)}
+                onClick={() => addToCart(myShoes.id)}
                 id={myShoes.id}
               >
                 Añadir al carro

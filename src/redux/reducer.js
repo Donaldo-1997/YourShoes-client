@@ -8,14 +8,16 @@ import {
   GET_SHOES_NAME,
   LOGIN_USER,
   POST_USER,
-  BRAND_PRICE_FILTER
+  BRAND_PRICE_FILTER,
+  HYDRATATE_FROM_LS,
+  REMOVER_TODO
 } from "./actions";
 
 const initialState = {
   products: [],
   detail: [],
   cart: [],
-  filteredProducts: []
+  filteredProducts: [],
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -39,46 +41,69 @@ export default function rootReducer(state = initialState, action) {
       };
 
     case ADD_ONE_TO_CART:
-      const allProducts = state.products;
-      // console.log(allProducts)
-      const cartProducts = allProducts.filter(
+      const newItem = state.products.find(
         (product) => product.id === action.payload
       );
-      //console.log(cartProducts);
-      return {
-        ...state,
-        cart : [...state.cart, ...cartProducts]
-      };
+      let itemInCart = state.cart.find((item) => item.id === newItem.id);
+
+      return itemInCart
+        ? {
+            ...state,
+            cart: state.cart.map((item) =>
+              item.id === newItem.id
+                ? { ...item, quantity: item.quantity + 1 }
+                : item
+            ),
+          }
+        : {
+            ...state,
+            cart: [...state.cart, { ...newItem, quantity: 1 }],
+          };
 
     case DELETE_ONE_FROM_CART:
-      const productsToDelete = state.products
-        productsToDelete.filter((product) => product.id !== action.payload)
+      const { productId, all } = action.payload;
+      let itemToDelete = state.cart.find((item) => item.id === productId);
+
+      if (all || itemToDelete.quantity === 1) {
+        return {
+          ...state,
+          cart: state.cart.filter((item) => item.id !== productId),
+        };
+      }
       return {
         ...state,
-        cart : state.cart
-      }
+        cart: state.cart.map((item) =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        ),
+      };
 
+    case HYDRATATE_FROM_LS:
+      return {
+        ...state,
+        cart: action.payload,
+      };
     case FILTER_BY_BRAND:
-      // console.log("hola", action.payload)
-      return{
+      return {
         ...state,
         filteredProducts: action.payload,
-        products: action.payload
-      }
+        products: action.payload,
+      };
 
     case FILTER_BY_PRICE:
-      return{
+      return {
         ...state,
         filteredProducts: action.payload,
-        products: action.payload
-      }
+        products: action.payload,
+      };
 
     case BRAND_PRICE_FILTER:
-      return{
+      return {
         ...state,
         filteredProducts: action.payload,
-        products: action.payload
-      }
+        products: action.payload,
+      };
 
     case POST_USER: {
       return {
@@ -91,7 +116,13 @@ export default function rootReducer(state = initialState, action) {
         ...state,
       };
     }
-    
+    case REMOVER_TODO: {
+      return {
+        ...state,
+        cart: initialState.cart
+      }
+    }
+
     default:
       return state;
   }

@@ -5,10 +5,18 @@ import './App.css';
 import Cart from './components/Cart/Cart';
 import FormUser from './components/FormUser/FormUser'
 import LogIn from './components/LogIn/LogIn';
-
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { hydratateFromLocalStorage } from './redux/actions';
 
 
 function App() {
+  const productsLS = JSON.parse(localStorage.getItem("products"))
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(hydratateFromLocalStorage(productsLS))
+  },[productsLS])
+
   return (
       <Router>
         <Routes>
