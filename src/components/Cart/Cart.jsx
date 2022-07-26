@@ -35,20 +35,28 @@ export default function Cart() {
           YOUR<span className={styles.shoes}>SHOES</span>
         </button>
       </Link>
+
+      {/* <button onClick={clearCart}>Limpiar carrito</button> */}
       <div>
-        <h2>SUMA TOTAL: ${precios}</h2>
+        {cartProducts.length ? (
+          <div className={styles.contenedor}>
+            {cartProducts.map((item, index) => (
+              <CartItem key={index} data={item} deleteProduct={deleteProduct} />
+            ))}
+            <div>
+              <div>
+                <h2>SUMA TOTAL: ${precios}</h2>
+                <button onClick={clearCart}>Limpiar carrito</button>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className={styles.containerSinDato}>
+            <h4>El carrito está vacío.</h4>
+            <h5>Vuelve y escoje tus zapatillas favoritas!</h5>
+          </div>
+        )}
       </div>
-      <button onClick={clearCart}>Limpiar carrito</button>
-      {cartProducts.length ? (
-        cartProducts.map((item, index) => (
-          <CartItem key={index} data={item} deleteProduct={deleteProduct} />
-        ))
-      ) : (
-        <div className={styles.containerSinDato}>
-          <h4>El carrito está vacío.</h4>
-          <h5>Vuelve y escoje tus zapatillas favoritas!</h5>
-        </div>
-      )}
     </div>
   );
 }
