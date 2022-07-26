@@ -48,8 +48,8 @@
   font-size: 16px;
   text-transform: capitalize;
   text-decoration: none;
-  /* font-weight: 300; */
-  display: block;
+  font-weight: 300;
+  /* display: block; */
   transition: all 0.3s ease;
 
 }
