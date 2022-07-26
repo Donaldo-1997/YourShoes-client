@@ -13,7 +13,7 @@ export default function AboutUs() {
           Somos un grupo de estudiantes de Henry creando nuestro proyecto final
           nos decidimos por hacer un e-commerce de ZAPATILLAS
         </p>
-        <h5>#SuarezANacional</h5>
+        
       </div>
     </div>
   );
