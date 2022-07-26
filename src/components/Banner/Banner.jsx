@@ -11,10 +11,12 @@ export default function Banner() {
           <img
             className="d-block w-100"
             style={{ height: "500px" }}
-            src="https://img.freepik.com/vector-premium/banner-venta-zapatillas-deporte_100562-29.jpg?w=2000"
+            src="https://www.fotoefectos.com/images/202207/25/fotoefectos.com__final_7229072012361613604_.jpg?act=96"
             alt="First slide"
           />
           <Carousel.Caption>
+            <div className={styles.yourShoes}>Your<span>Shoes</span></div>
+            <p>Elige tu marca</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item interval={2000}>
@@ -31,15 +33,14 @@ export default function Banner() {
           <img
             className="d-block w-100"
             style={{ height: "500px" }}
-            src="https://www.fotoefectos.com/images/202207/25/fotoefectos.com__final_7229072012361613604_.jpg?act=96"
+            src="https://cdn.shopify.com/s/files/1/0526/0935/1850/files/Banner_nike_web_2048x2048.jpg?v=1651795446"
             alt="Third slide"
           />
           <Carousel.Caption>
-          <div className={styles.yourShoes}>Your<span>Shoes</span></div>
-            <p>Elige tu marca</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
     </>
   );
 }
+
