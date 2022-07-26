@@ -9,8 +9,14 @@ export default function Cart() {
   const cartProducts = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  console.log(cartProducts, "ESTO ES CART PRODUCTS!!!!");
-
+  let precios = 0;
+  for (let i = 0; i < cartProducts.length; i++) {
+    if (cartProducts[i].quantity === 1) {
+      precios += cartProducts[i].price;
+    } else {
+      precios += cartProducts[i].price * cartProducts[i].quantity;
+    }
+  }
   const deleteProduct = (id, all = false) => {
     dispatch(deleteOneToCart({ productId: id, all }));
   };
@@ -29,6 +35,9 @@ export default function Cart() {
           YOUR<span className={styles.shoes}>SHOES</span>
         </button>
       </Link>
+      <div>
+        <h2>SUMA TOTAL: ${precios}</h2>
+      </div>
       <button onClick={clearCart}>Limpiar carrito</button>
       {cartProducts.length ? (
         cartProducts.map((item, index) => (
@@ -38,7 +47,6 @@ export default function Cart() {
         <div className={styles.containerSinDato}>
           <h4>El carrito está vacío.</h4>
           <h5>Vuelve y escoje tus zapatillas favoritas!</h5>
-          
         </div>
       )}
     </div>
