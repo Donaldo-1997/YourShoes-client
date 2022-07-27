@@ -21,7 +21,7 @@ export function removerTodo(){
 }
 export function getAllShoes() {
   return async function (dispatch) {
-    const results = await axios(`http://localhost:3001/shoes`);
+    const results = await axios(`/shoes`);
     dispatch({
       type: "GET_ALL_SHOES",
       payload: results.data,
@@ -30,7 +30,7 @@ export function getAllShoes() {
 }
 export function getDetails(id) {
   return async function (dispatch) {
-    const res = await axios(`http://localhost:3001/shoes/${id}`);
+    const res = await axios(`/shoes/${id}`);
     return dispatch({
       type: "GET_DETAILS",
       payload: res.data,
@@ -43,7 +43,7 @@ export function getShoesName(name) {
 
   return async function (dispatch) {
     try {
-      const results = await axios(`http://localhost:3001/shoes?name=${name}`);
+      const results = await axios(`/shoes?name=${name}`);
       return dispatch({
         type: "GET_SHOES_NAME",
         payload: results.data,
@@ -70,13 +70,13 @@ export function deleteOneToCart(payload) {
 
 export function getAllBrands() {
   return async function () {
-    await axios(`http://localhost:3001/brands`);
+    await axios(`/brands`);
   };
 }
 
 export function filterByBrand(payload) {
   return async function (dispatch) {
-    const results = await axios(`http://localhost:3001/shoes?brand=${payload}`);
+    const results = await axios(`/shoes?brand=${payload}`);
     return dispatch({
       type: FILTER_BY_BRAND,
       payload: results.data,
@@ -87,7 +87,7 @@ export function filterByBrand(payload) {
 export function filterByPrice(priceMin, priceMax) {
   return async function (dispatch) {
     const results = await axios(
-      `http://localhost:3001/shoes?priceMin=${priceMin}&priceMax=${priceMax}`
+      `/shoes?priceMin=${priceMin}&priceMax=${priceMax}`
     );
     return dispatch({
       type: FILTER_BY_PRICE,
@@ -100,7 +100,7 @@ export function postUser(payload) {
   return async function (dispatch) {
     try {
       var json = await axios.post(
-        `http://localhost:3001/login/signup`,
+        `/login/signup`,
         payload
       );
 
@@ -118,7 +118,7 @@ export function Login(payload) {
   return async function (dispatch) {
     try {
       var json = await axios.post(
-        `http://localhost:3001/login/signin`,
+        `/login/signin`,
         payload
       );
 
@@ -136,7 +136,7 @@ export function brandAndPriceFilter(brand, priceMin, priceMax) {
   return async function (dispatch) {
     try {
       const results = await axios(
-        `http://localhost:3001/shoes?brand=${brand}&priceMin=${priceMin}&priceMax=${priceMax}`
+        `/shoes?brand=${brand}&priceMin=${priceMin}&priceMax=${priceMax}`
       );
       dispatch({
         type: BRAND_PRICE_FILTER,
