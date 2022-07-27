@@ -189,23 +189,23 @@ export function combinationsFilter(brand, priceMin, priceMax){
   };
 }
 
-export function Login(payload) {
-  return async function (dispatch) {
-    try {
-      var json = await axios.post(
-        `http://localhost:3001/login/signin`,
-        payload
-      );
+// export function Login(payload) {
+//   return async function (dispatch) {
+//     try {
+//       var json = await axios.post(
+//         `http://localhost:3001/login/signin`,
+//         payload
+//       );
 
-      dispatch({
-        type: LOGIN_USER,
-        payload: json,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
+//       dispatch({
+//         type: LOGIN_USER,
+//         payload: json,
+//       });
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+// }
 
 
 export function hydratateFromLocalStorage(payload) {
