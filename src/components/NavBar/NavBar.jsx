@@ -12,7 +12,7 @@ import styles from './NavBar.module.css'
 
 
 
-export default function NavBar({setCurrentPage, handleReset}) {
+export default function NavBar({handleReset, handleInputName, handleNameSubmit}) {
 
 
   return (
@@ -38,7 +38,9 @@ export default function NavBar({setCurrentPage, handleReset}) {
                <Link to='/login'><FaUserAlt  style={{ color: "#f87d2d" }} /></Link>
             </Nav.Link>
           </Nav>
-          <Searchbar setCurrentPage={setCurrentPage}></Searchbar>
+          <Searchbar 
+          handleInputName={handleInputName}
+          handleNameSubmit={handleNameSubmit}></Searchbar>
         </Navbar.Collapse>
         {/* <GoogleLogin
           clientId="321230858550-vrrr1cr5coemim48ourin60pumf2rh3f.apps.googleusercontent.com"
