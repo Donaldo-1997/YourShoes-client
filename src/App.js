@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { hydratateFromLocalStorage } from './redux/actions';
 import AboutUs from './components/About/AboutUs';
 import FAQs from './components/About/FAQs';
+import MercadoPago from "./components/MercadoPago/MercadoPago"
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route exact path='/login' element={<LogIn/>}/>
           <Route exact path='/aboutUs' element={<AboutUs/>}/>
           <Route exact path='/questions' element={<FAQs/>}/>
+          <Route exact path='/mercadopago/pagos' element={<MercadoPago/>}/>
         </Routes>
       </Router>
   );

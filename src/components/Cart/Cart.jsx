@@ -46,6 +46,9 @@ export default function Cart() {
             <div>
               <div>
                 <h2>SUMA TOTAL: ${precios}</h2>
+                <Link to='/mercadopago/pagos'>
+                  <button>Pagar</button>
+                </Link>
                 <button onClick={clearCart}>Limpiar carrito</button>
               </div>
             </div>
