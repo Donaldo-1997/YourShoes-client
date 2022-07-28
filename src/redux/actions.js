@@ -11,7 +11,7 @@ export const POST_USER = 'POST_USER'
 export const LOGIN_USER = 'LOGIN_USER'
 export const FILTER_BY_PRICE = 'FILTER_BY_PRICE'
 export const FILTER_BY_CATEGORY = 'FILTER_BY_CATEGORY'
-export const FILTER_BY_SIZE= 'FILTER_BY_SIZE'
+export const FILTER_BY_SIZE = 'FILTER_BY_SIZE'
 export const COMBINATION_FILTERS = 'COMBINATION_FILTERS'
 export const COMBINATION_FILTERS1 = 'COMBINATION_FILTERS1'
 export const COMBINATION_FILTERS2 = 'COMBINATION_FILTERS2'
@@ -24,14 +24,17 @@ export const COMBINATION_FILTERS8 = 'COMBINATION_FILTERS8'
 export const COMBINATION_FILTERS9 = 'COMBINATION_FILTERS9'
 export const COMBINATION_FILTERS10 = 'COMBINATION_FILTERS10'
 export const COMBINATION_FILTERS11 = 'COMBINATION_FILTERS11'
-export const COMBINATION_FILTERS_12= 'COMBINATION_FILTERS_12'
-export const COMBINATION_FILTERS_13= 'COMBINATION_FILTERS_13'
-export const HYDRATATE_FROM_LS ="HYDRATATE_FROM_LS"
+export const COMBINATION_FILTERS_12 = 'COMBINATION_FILTERS_12'
+export const COMBINATION_FILTERS_13 = 'COMBINATION_FILTERS_13'
+export const COMBINATION_FILTERS14 = 'COMBINATION_FILTERS14'
+export const COMBINATION_FILTERS15 = 'COMBINATION_FILTERS15'
+export const COMBINATION_FILTERS16 = 'COMBINATION_FILTERS16'
+export const HYDRATATE_FROM_LS = "HYDRATATE_FROM_LS"
 export const REMOVER_TODO = "REMOVER_TODO"
 export const MERCADOPAGO_PAYMENT = 'MERCADOPAGO_PAYMENT'
 
-export function removerTodo(){
-  return{
+export function removerTodo() {
+  return {
     type: REMOVER_TODO,
   }
 }
@@ -99,8 +102,8 @@ export function getAllCategories() {
     });
   };
 }
-export function filterByBrand(payload){
-  return async function(dispatch){
+export function filterByBrand(payload) {
+  return async function (dispatch) {
     const results = await axios(`http://localhost:3001/shoes?brand=${payload}`)
     return dispatch({
       type: FILTER_BY_BRAND,
@@ -109,8 +112,8 @@ export function filterByBrand(payload){
   };
 }
 
-export function filterByCategory(payload){
-  return async function(dispatch){
+export function filterByCategory(payload) {
+  return async function (dispatch) {
     const results = await axios(`http://localhost:3001/shoes?category=${payload}`)
     //console.log(results.data)
     return dispatch({
@@ -119,8 +122,8 @@ export function filterByCategory(payload){
     })
   }
 }
-export function filterBySize(payload){
-  return async function(dispatch){
+export function filterBySize(payload) {
+  return async function (dispatch) {
     const results = await axios(`http://localhost:3001/shoes?size=${payload}`)
     //console.log(results.data)
     return dispatch({
@@ -129,9 +132,9 @@ export function filterBySize(payload){
     })
   }
 }
-export function filterByPrice(priceMin, priceMax){
+export function filterByPrice(priceMin, priceMax) {
   //console.log("precio", priceMax)
-  return async function(dispatch){
+  return async function (dispatch) {
     const results = await axios(`http://localhost:3001/shoes?priceMin=${priceMin}&priceMax=${priceMax}`)
     return dispatch({
       type: FILTER_BY_PRICE,
@@ -157,55 +160,23 @@ export function postUser(payload) {
   }
 };
 export function Login(payload) {
-  console.log('payload',payload)
+  console.log('payload', payload)
   return async function (dispatch) {
-      try {
-          var json = await axios.post(`http://localhost:3001/login/signin`, payload)
-     
-          dispatch({
-              type: LOGIN_USER,
-              payload:json
-          });
-      } catch (error) {
-          console.log(error)
-          
-      }
-     
+    try {
+      var json = await axios.post(`http://localhost:3001/login/signin`, payload)
+
+      dispatch({
+        type: LOGIN_USER,
+        payload: json
+      });
+    } catch (error) {
+      console.log(error)
+
+    }
+
   }
 };
 
-export function combinationsFilter(brand, priceMin, priceMax){
-  return async function (dispatch){
-    try{
-      const results = await axios(`http://localhost:3001/shoes?brand=${brand}&priceMin=${priceMin}&priceMax=${priceMax}`)
-      dispatch({
-        type: COMBINATION_FILTERS,
-        payload: results.data
-      })
-      return results.data
-    }catch(err){
-      throw err
-    }
-  };
-}
-
-// export function Login(payload) {
-//   return async function (dispatch) {
-//     try {
-//       var json = await axios.post(
-//         `http://localhost:3001/login/signin`,
-//         payload
-//       );
-
-//       dispatch({
-//         type: LOGIN_USER,
-//         payload: json,
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// }
 
 
 export function hydratateFromLocalStorage(payload) {
@@ -216,7 +187,7 @@ export function hydratateFromLocalStorage(payload) {
 }
 export function createOrder(payload) {
   return async function (dispatch) {
-    const res = await axios.post(`http://localhost:3001/mercadopago`,{cart:payload.cart});
+    const res = await axios.post(`http://localhost:3001/mercadopago`, { cart: payload.cart });
     return dispatch({
       type: "CREATE_ORDER",
       payload: res.data,
@@ -224,111 +195,55 @@ export function createOrder(payload) {
   };
 }
 
-// export function getOrder (){
-//   return function(dispatch){
-//     return fetch(`http://localhost:3001/orders`)
-//     .then(response => response.json())
-//     .then(json =>{
-//       dispatch({
-//         type: "GET_ORDER",
-//         payload:json
-//       })
-//     })
-//   }
-// }
-
-// export const goToCheckout = ()=> {
-//   const productsInCart = JSON.parse(localStorage.getItem('cart'));
-//   return axios.post('/checkout', { productsInCart })
-//     .then(res => window.location = res.data.init_point)
-//     .catch(err => console.error(err));
-// };
-
-
-
-// export const changeOrderStatus = userId => (dispatch, getState) => {
-//   const url = window.location.href.slice(window.location.href.indexOf('?'));
-//   const status = url.slice(url.indexOf('&status') + 1).split('=')[1].split('&')[0];
-//   if (status === 'approved' || status === 'pending') {
-//       const products = JSON.parse(localStorage.getItem('cart'));
-//       axios.post('/user/send-order', {order: products, userId})
-//       .then(res => {
-//           dispatch({
-//               type: "SEND_ORDER_EMAIL",
-//               order: res.data
-//           });
-//       })
-//       .catch(err => console.log("ERROR ENVIANDO MAIL: ", err));
-
-//       const promises = products.map(product => {
-//           return axios.put('/product/updateStock', {
-//             form: {...product, stock: product.stock - product.quantity}
-//           })
-//           .then(res => console.log(res))
-//           .catch(err => console.log(err));
-//       });
-
-//       Promise.all(promises)
-//       .then(res => {
-//           return axios.put(`/checkout/${userId}`, {status})
-//           .then(response => {
-//               dispatch({
-//                   type: "CHANGE_ORDER_STATUS",
-//                   order: response.data
-//               });
-//               window.location.search = window.location.search.split('?')[0];
-//               localStorage.removeItem('cart');
-//           })
-//       })
-//       .catch(err => console.log('SE PUDRIÓ TODO'));
-//   } else {
-//       return axios.put(`/checkout/${userId}`, {status})
-//       .then(res => {
-//       dispatch({
-//           type: "CHANGE_ORDER_STATUS",
-//           order: res.data
-//       });
-//       window.location.search = window.location.search.split('?')[0];
-//       localStorage.removeItem('cart');
-//       })
-//       .catch(err => console.log(err));
-//   };
-// }
-export function combinationsFilter1(name, priceMin, priceMax){
-  return async function (dispatch){
-    try{
+export function combinationsFilter(brand, priceMin, priceMax) {
+  return async function (dispatch) {
+    try {
+      const results = await axios(`http://localhost:3001/shoes?brand=${brand}&priceMin=${priceMin}&priceMax=${priceMax}`)
+      dispatch({
+        type: COMBINATION_FILTERS,
+        payload: results.data
+      })
+      return results.data
+    } catch (err) {
+      throw err
+    }
+  };
+}
+export function combinationsFilter1(name, priceMin, priceMax) {
+  return async function (dispatch) {
+    try {
       const results = await axios(`http://localhost:3001/shoes?name=${name}&priceMin=${priceMin}&priceMax=${priceMax}`)
       dispatch({
         type: COMBINATION_FILTERS1,
         payload: results.data
       })
       return results.data
-    }catch(err){
+    } catch (err) {
       throw err
     }
   }
 }
-export function combinationsFilter2(brand,name, priceMin, priceMax){
-  return async function (dispatch){
-    try{
+export function combinationsFilter2(brand, name, priceMin, priceMax) {
+  return async function (dispatch) {
+    try {
       const results = await axios(`http://localhost:3001/shoes?brand=${brand}&name=${name}&priceMin=${priceMin}&priceMax=${priceMax}`)
       dispatch({
         type: COMBINATION_FILTERS2,
         payload: results.data
       })
       return results.data
-    }catch(err){
+    } catch (err) {
       throw err
     }
   }
 }
-export function combinationsFilter3(name, brand){
-  return async function(dispatch){
+export function combinationsFilter3(name, brand) {
+  return async function (dispatch) {
     try {
       const results = await axios(`http://localhost:3001/shoes?name=${name}&brand=${brand}`)
       dispatch({
         type: COMBINATION_FILTERS3,
-        payload:results.data
+        payload: results.data
       })
       return results.data
     } catch (err) {
@@ -336,54 +251,55 @@ export function combinationsFilter3(name, brand){
     }
   }
 }
-export function combinationsFilter4(category, priceMin, priceMax){
-  return async function (dispatch){
-    try{
+export function combinationsFilter4(category, priceMin, priceMax) {
+  return async function (dispatch) {
+    try {
       const results = await axios(`http://localhost:3001/shoes?category=${category}&priceMin=${priceMin}&priceMax=${priceMax}`)
       dispatch({
         type: COMBINATION_FILTERS4,
         payload: results.data
       })
       return results.data
-    }catch(err){
-      throw err
-    }
-  }
-}
-export function combinationsFilter5(category, name){
-  return async function(dispatch){
-    try {
-      const results = await axios(`http://localhost:3001/shoes?category=${category}&name=${name}`)
-      dispatch({
-        type: COMBINATION_FILTERS5,
-        payload:results.data
-      })
     } catch (err) {
       throw err
     }
   }
 }
-export function combinationsFilter6(brand, category){
-  return async function (dispatch){
-    try{
+export function combinationsFilter5(category, name) {
+  return async function (dispatch) {
+    try {
+      const results = await axios(`http://localhost:3001/shoes?category=${category}&name=${name}`)
+      dispatch({
+        type: COMBINATION_FILTERS5,
+        payload: results.data
+      })
+      return results.data
+    } catch (err) {
+      throw err
+    }
+  }
+}
+export function combinationsFilter6(brand, category) {
+  return async function (dispatch) {
+    try {
       const results = await axios(`http://localhost:3001/shoes?brand=${brand}&category=${category}`)
       dispatch({
         type: COMBINATION_FILTERS6,
         payload: results.data
       })
       return results.data
-    }catch(err){
+    } catch (err) {
       throw err
     }
   }
 }
-export function combinationsFilter7(category, brand, name){
-  return async function(dispatch){
+export function combinationsFilter7(category, brand, name) {
+  return async function (dispatch) {
     try {
       const results = await axios(`http://localhost:3001/shoes?category=${category}&brand=${brand}&name=${name}`)
       dispatch({
         type: COMBINATION_FILTERS7,
-        payload:results.data
+        payload: results.data
       })
       return results.data
     } catch (err) {
@@ -391,13 +307,13 @@ export function combinationsFilter7(category, brand, name){
     }
   }
 }
-export function combinationsFilter8(category, brand, priceMax, priceMin){
-  return async function(dispatch){
+export function combinationsFilter8(category, brand, priceMax, priceMin) {
+  return async function (dispatch) {
     try {
       const results = await axios(`http://localhost:3001/shoes?category=${category}&brand=${brand}&priceMin=${priceMin}&priceMax=${priceMax}`)
       dispatch({
         type: COMBINATION_FILTERS8,
-        payload:results.data
+        payload: results.data
       })
       return results.data
     } catch (err) {
@@ -405,13 +321,13 @@ export function combinationsFilter8(category, brand, priceMax, priceMin){
     }
   }
 }
-export function combinationsFilter9(category, name, priceMax, priceMin){
-  return async function(dispatch){
+export function combinationsFilter9(category, name, priceMax, priceMin) {
+  return async function (dispatch) {
     try {
       const results = await axios(`http://localhost:3001/shoes?category=${category}&name=${name}&priceMin=${priceMin}&priceMax=${priceMax}`)
       dispatch({
         type: COMBINATION_FILTERS9,
-        payload:results.data
+        payload: results.data
       })
       return results.data
     } catch (err) {
@@ -419,13 +335,13 @@ export function combinationsFilter9(category, name, priceMax, priceMin){
     }
   }
 }
-export function combinationsFilter10(category, name, priceMax, priceMin,brand){
-  return async function(dispatch){
+export function combinationsFilter10(category, name, priceMax, priceMin, brand) {
+  return async function (dispatch) {
     try {
       const results = await axios(`http://localhost:3001/shoes?category=${category}&name=${name}&brand=${brand}&priceMin=${priceMin}&priceMax=${priceMax}`)
       dispatch({
         type: COMBINATION_FILTERS10,
-        payload:results.data
+        payload: results.data
       })
       return results.data
     } catch (err) {
@@ -433,44 +349,89 @@ export function combinationsFilter10(category, name, priceMax, priceMin,brand){
     }
   }
 }
-export function combinationsFilter11(brand, priceMin, priceMax, size){
-  return async function (dispatch){
-    try{
+export function combinationsFilter11(brand, priceMin, priceMax, size) {
+  return async function (dispatch) {
+    try {
       const results = await axios(`http://localhost:3001/shoes?size=${size}&brand=${brand}&priceMin=${priceMin}&priceMax=${priceMax}`)
       dispatch({
         type: COMBINATION_FILTERS11,
         payload: results.data
       })
       return results.data
-    }catch(err){
+    } catch (err) {
       throw err
     }
   }
 }
-export function combinationsFilter_12(size, priceMin, priceMax){
-  return async function (dispatch){
-    try{
+export function combinationsFilter_12(size, priceMin, priceMax) {
+  return async function (dispatch) {
+    try {
       const results = await axios(`http://localhost:3001/shoes?size=${size}&priceMin=${priceMin}&priceMax=${priceMax}`)
       dispatch({
         type: COMBINATION_FILTERS_12,
         payload: results.data
       })
       return results.data
-    }catch(err){
+    } catch (err) {
       throw err
     }
   }
 }
-export function combinationsFilter_13(size, brand){
-  return async function (dispatch){
-    try{
+export function combinationsFilter_13(size, brand) {
+  return async function (dispatch) {
+    try {
       const results = await axios(`http://localhost:3001/shoes?size=${size}&brand=${brand}`)
       dispatch({
         type: COMBINATION_FILTERS_13,
         payload: results.data
       })
       return results.data
-    }catch(err){
+    } catch (err) {
+      throw err
+    }
+  }
+}
+
+export function combinationsFilter14(size, brand, name, priceMin, priceMax) {
+  return async function (dispatch) {
+    try {
+      const results = await axios(`http://localhost:3001/shoes?size=${size}&brand=${brand}&name=${name}&priceMin=${priceMin}&priceMax=${priceMax}`)
+      dispatch({
+        type: COMBINATION_FILTERS14,
+        payload: results.data
+      })
+      return results.data
+    } catch (err) {
+      throw err
+    }
+  }
+}
+
+export function combinationsFilter15(size, name) {
+  return async function (dispatch) {
+    try {
+      const results = await axios(`http://localhost:3001/shoes?size=${size}&name=${name}`)
+      dispatch({
+        type: COMBINATION_FILTERS15,
+        payload: results.data
+      })
+      return results.data
+    } catch (err) {
+      throw err
+    }
+  }
+}
+
+export function combinationsFilter16(size, category) {
+  return async function (dispatch) {
+    try {
+      const results = await axios(`http://localhost:3001/shoes?size=${size}&category=${category}`)
+      dispatch({
+        type: COMBINATION_FILTERS16,
+        payload: results.data
+      })
+      return results.data
+    } catch (err) {
       throw err
     }
   }

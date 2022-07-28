@@ -26,7 +26,10 @@ import {
   COMBINATION_FILTERS10,
   COMBINATION_FILTERS11,
   COMBINATION_FILTERS_12,
-  COMBINATION_FILTERS_13
+  COMBINATION_FILTERS_13,
+  COMBINATION_FILTERS14,
+  COMBINATION_FILTERS15,
+  COMBINATION_FILTERS16
 } from "./actions";
 
 const initialState = {
@@ -216,6 +219,24 @@ export default function rootReducer(state = initialState, action) {
         filteredProducts: action.payload,
         products: action.payload
       }
+    case COMBINATION_FILTERS14:
+      return{
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS15:
+      return{
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS16:
+    return{
+      ...state,
+      filteredProducts: action.payload,
+      products: action.payload
+    }
     case POST_USER: {
       return {
         ...state,
