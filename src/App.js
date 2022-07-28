@@ -8,6 +8,8 @@ import LogIn from './components/LogIn/LogIn';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { hydratateFromLocalStorage } from './redux/actions';
+import AboutUs from './components/About/AboutUs';
+import FAQs from './components/About/FAQs';
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
           <Route exact path='/cart' element={<Cart/>}/>
           <Route exact path='/user' element={<FormUser/>}/>
           <Route exact path='/login' element={<LogIn/>}/>
+          <Route exact path='/aboutUs' element={<AboutUs/>}/>
+          <Route exact path='/questions' element={<FAQs/>}/>
         </Routes>
       </Router>
   );

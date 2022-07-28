@@ -35,8 +35,10 @@ export default function Cart() {
           <CartItem key={index} data={item} deleteProduct={deleteProduct} />
         ))
       ) : (
-        <div>
-          <h4>El carrito está vacío</h4>
+        <div className={styles.containerSinDato}>
+          <h4>El carrito está vacío.</h4>
+          <h5>Vuelve y escoje tus zapatillas favoritas!</h5>
+          
         </div>
       )}
     </div>

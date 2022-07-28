@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "./About.module.css";
+import styles from "./Footer.module.css";
+import { Link } from "react-router-dom";
 export default function About() {
   return (
     <div className={styles.footer}>
@@ -8,7 +9,7 @@ export default function About() {
           <div className={styles.footer_col}>
             <h3>ABOUT</h3>
             <ul>
-              <li>ABOUT US</li>
+              <li><Link to="/aboutUs">ABOUT US</Link></li>
               <li>COMMUNITY</li>
               <li>CONTACT</li>
               <li>LEGAL</li>

@@ -44,3 +44,13 @@
 .app_logo {
   margin-top: 20px;
 }
+.footer_col ul, li, a{
+  font-size: 16px;
+  text-transform: capitalize;
+  text-decoration: none;
+  /* font-weight: 300; */
+  /* display: block; */
+  color:grey;
+  transition: all 0.5s ease;
+  list-style: none;
+}

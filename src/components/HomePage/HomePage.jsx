@@ -6,7 +6,7 @@ import ProductCards from "../ProductCards/ProductCards";
 import Pagination from "../Pagination/Pagination";
 import Banner from "../Banner/Banner";
 import NavBar from "../NavBar/NavBar";
-import About from "../About/About";
+import About from "../About/Footer";
 import styles from "./HomePage.module.css";
 
 export default function HomePage() {
