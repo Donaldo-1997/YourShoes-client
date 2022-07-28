@@ -58,7 +58,7 @@ export default function ProductDetail() {
             <h1 className={styles.title}>{myShoes.title}</h1>
             <h3 className={styles.price}>${myShoes.price}</h3>
             <h5>descripcion del producto</h5>
-            <h1 className={styles.size}>Size: </h1>
+            <h1 className={styles.size}>Talle: </h1>
             <select className={styles.select}>
               <option value="35">35</option>
               <option value="36">36</option>
