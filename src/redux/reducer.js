@@ -3,14 +3,33 @@ import {
   DELETE_ONE_FROM_CART,
   FILTER_BY_BRAND,
   FILTER_BY_PRICE,
+  FILTER_BY_CATEGORY,
+  FILTER_BY_SIZE,
   GET_ALL_SHOES,
+  GET_ALL_CATEGORIES,
   GET_DETAILS,
   GET_SHOES_NAME,
   LOGIN_USER,
   POST_USER,
-  BRAND_PRICE_FILTER,
   HYDRATATE_FROM_LS,
-  REMOVER_TODO
+  REMOVER_TODO,
+  COMBINATION_FILTERS,
+  COMBINATION_FILTERS1,
+  COMBINATION_FILTERS2,
+  COMBINATION_FILTERS3,
+  COMBINATION_FILTERS4,
+  COMBINATION_FILTERS5,
+  COMBINATION_FILTERS6,
+  COMBINATION_FILTERS7,
+  COMBINATION_FILTERS8,
+  COMBINATION_FILTERS9,
+  COMBINATION_FILTERS10,
+  COMBINATION_FILTERS11,
+  COMBINATION_FILTERS_12,
+  COMBINATION_FILTERS_13,
+  COMBINATION_FILTERS14,
+  COMBINATION_FILTERS15,
+  COMBINATION_FILTERS16
 } from "./actions";
 
 const initialState = {
@@ -18,6 +37,7 @@ const initialState = {
   detail: [],
   cart: [],
   filteredProducts: [],
+  categories: []
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -26,6 +46,11 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         products: action.payload,
+      };
+    case GET_ALL_CATEGORIES:
+      return {
+        ...state,
+        categories: action.payload,
       };
 
     case GET_DETAILS:
@@ -95,16 +120,123 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         filteredProducts: action.payload,
-        products: action.payload,
-      };
-
-    case BRAND_PRICE_FILTER:
+        products: action.payload
+      }
+    case FILTER_BY_CATEGORY:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case FILTER_BY_SIZE:
       return {
         ...state,
         filteredProducts: action.payload,
         products: action.payload,
       };
 
+    case COMBINATION_FILTERS:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS1:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS2:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS3:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS4:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS5:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS6:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS7:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS8:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS9:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS10:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS11:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS_12:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS_13:
+      return {
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS14:
+      return{
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS15:
+      return{
+        ...state,
+        filteredProducts: action.payload,
+        products: action.payload
+      }
+    case COMBINATION_FILTERS16:
+    return{
+      ...state,
+      filteredProducts: action.payload,
+      products: action.payload
+    }
     case POST_USER: {
       return {
         ...state,

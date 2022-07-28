@@ -16,6 +16,17 @@
 .Link {
   text-decoration: none;
 }
+.contenedor{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 700px;
+  gap: 0.2rem;
+  background-color: dodgerblue;
+
+}
 
 .yourshoes {
   background: none;
@@ -36,7 +47,6 @@
   letter-spacing: 0.04em;
   color: #000000;
 }
-
 .shoes {
   color: #f87d2d;
 }
