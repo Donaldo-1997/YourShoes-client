@@ -6,17 +6,9 @@ import styles from "./LogIn.module.css";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle , FcGoodDecision,FcDownLeft} from "react-icons/fc";
 import { Link } from "react-router-dom";
-
-
-
-
-
 export default function LogIn() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  
-
   const [formularioEnviado, setformularioEnviado] = useState(false);
   return (
       <div className={styles.contenedor}>

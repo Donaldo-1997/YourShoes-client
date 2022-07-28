@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addOneToCart, getDetails } from "../../redux/actions";
 import { useParams, Link } from "react-router-dom";
 import styles from "./ProductDetail.module.css";
-import NavBar from "../NavBar/NavBar"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ProductDetail() {
   const dispatch = useDispatch();
@@ -22,19 +21,18 @@ export default function ProductDetail() {
     localStorage.setItem("products", JSON.stringify(cartProducts));
   };
 
-   const saveLocalStorage = () => {
-    localStorage.getItem('products')
-   }
+  const saveLocalStorage = () => {
+    localStorage.getItem("products");
+  };
 
-  //  const addToCartToast = () => {
-    
-  // }
+ 
 
-   useEffect(() => {
-    if(cartProducts.length){
-    addLocalStorage()
-    saveLocalStorage()}
-   },[cartProducts])
+  useEffect(() => {
+    if (cartProducts.length) {
+      addLocalStorage();
+      saveLocalStorage();
+    }
+  }, [cartProducts]);
 
   const addToCart = (id) => {
     dispatch(addOneToCart(id));
@@ -42,18 +40,23 @@ export default function ProductDetail() {
       className: "cart-toast",
       draggable: true,
       position: toast.POSITION.TOP_CENTER,
-    })
+    });
   };
 
   return (
-    
-        <div>
-       <Link to="/" >
-              <button className={styles.yourshoes}>YOUR<span className={styles.shoes}>SHOES</span></button>
-       </Link>
+    <div>
+      <Link to="/">
+        <button className={styles.yourshoes}>
+          YOUR<span className={styles.shoes}>SHOES</span>
+        </button>
+      </Link>
       {myShoes ? (
         <div className={styles.divCard}>
-          <img src={myShoes.image} alt="imgShoes not found" className={styles.imagen}/>
+          <img
+            src={myShoes.image}
+            alt="imgShoes not found"
+            className={styles.imagen}
+          />
           <div className={styles.divContent}>
             <h1 className={styles.title}>{myShoes.title}</h1>
             <h3 className={styles.price}>${myShoes.price}</h3>
@@ -72,7 +75,15 @@ export default function ProductDetail() {
               <option value="44">44</option>
             </select>
             <div className={styles.buttons}>
-              <button className={styles.cart}>Comprar</button> 
+              <Link to="/mercadopago/pagos">
+                <button
+                  className={styles.cart}
+                  onClick={() => addToCart(myShoes.id)}
+                  id={myShoes.id}
+                >
+                  Comprar
+                </button>
+              </Link>
               <button
                 className={styles.cart}
                 onClick={() => addToCart(myShoes.id)}
@@ -94,8 +105,5 @@ export default function ProductDetail() {
         </div>
       )}
     </div>
-    
-    
-    
   );
 }
